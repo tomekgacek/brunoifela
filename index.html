@@ -2,28 +2,788 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Bruno i Fela</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruno i Fela | Słuchowiska i Piosenki dla Dzieci</title>
+    <meta name="description" content="Oficjalna strona Bruno i Fela. Słuchowiska sezon 1, piosenki z kanału YouTube oraz kolorowanki do pobrania dla dzieci.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body{
-            margin:0;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            font-family:Arial, sans-serif;
-            background:#f8f8f8;
+        :root {
+            --bg-cream: #f9f2dd;
+            --bg-soft: #fff8eb;
+            --ink: #1f2a2a;
+            --muted: #4c5a5b;
+            --leaf: #2f8f5b;
+            --sun: #f4b740;
+            --berry: #d8584a;
+            --sky: #7cc7c2;
+            --card: rgba(255, 255, 255, 0.86);
+            --shadow: 0 20px 50px rgba(30, 51, 39, 0.15);
+            --radius: 22px;
         }
 
-        h1{
-            font-size:64px;
-            color:#444;
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 8% 12%, rgba(124, 199, 194, 0.4), transparent 32%),
+                radial-gradient(circle at 92% 8%, rgba(244, 183, 64, 0.35), transparent 28%),
+                linear-gradient(180deg, var(--bg-cream) 0%, #f7eac8 45%, #f2e2bc 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .backdrop-shape {
+            position: fixed;
+            z-index: -1;
+            border-radius: 999px;
+            filter: blur(1px);
+            opacity: 0.45;
+        }
+
+        .backdrop-shape.one {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #74bd7f, #d8f0a8);
+            left: -110px;
+            top: 180px;
+        }
+
+        .backdrop-shape.two {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(160deg, #f3b34c, #f8dd88);
+            right: -70px;
+            top: 380px;
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+            background: rgba(249, 242, 221, 0.8);
+            border-bottom: 1px solid rgba(31, 42, 42, 0.08);
+        }
+
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink);
+            font-family: "Baloo 2", cursive;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+
+        .brand-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--leaf), var(--sky));
+            color: #fff;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 18px rgba(47, 143, 91, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(124, 199, 194, 0.23);
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 24px;
+            align-items: center;
+            padding: 44px 0 26px;
+        }
+
+        .hero-copy h1 {
+            margin: 0;
+            line-height: 1.05;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(2rem, 4.8vw, 4rem);
+            font-weight: 800;
+        }
+
+        .hero-copy p {
+            margin: 16px 0 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.9vw, 1.17rem);
+            line-height: 1.7;
+            max-width: 62ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .btn {
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 800;
+            border-radius: 14px;
+            padding: 11px 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(31, 42, 42, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--berry), #f2826c);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--ink);
+            border: 1px solid rgba(31, 42, 42, 0.12);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-visual img:nth-child(1) {
+            transform: rotate(-3deg);
+        }
+
+        .hero-visual img:nth-child(2) {
+            transform: rotate(2deg) translateY(14px);
+        }
+
+        .hero-visual img:nth-child(3) {
+            transform: rotate(1deg);
+            grid-column: 1 / -1;
+            aspect-ratio: 16 / 8;
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            line-height: 1.1;
+        }
+
+        .section-lead {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+            font-size: 1.03rem;
+            max-width: 80ch;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .playlist-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-family: "Baloo 2", cursive;
+        }
+
+        .card p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.66;
+        }
+
+        .episode-list {
+            margin-top: 16px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .episodes-grid {
+            margin-top: 18px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .songs-grid {
+            margin-top: 18px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .episode {
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+        }
+
+        .episode-title {
+            margin: 0;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .episode p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .episode-code {
+            display: inline-block;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: #1f5f43;
+            background: rgba(47, 143, 91, 0.13);
+            padding: 4px 8px;
+            border-radius: 999px;
+        }
+
+        .song-link {
+            display: inline-flex;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #cb4747, #e26464);
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            transition: transform 0.2s ease;
+        }
+
+        .song-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .gallery {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .gallery figure {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.06);
+        }
+
+        .coloring-grid {
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        }
+
+        .coloring-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .coloring-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .coloring-item .meta {
+            padding: 12px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .coloring-item h4 {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .download-link {
+            text-decoration: none;
+            color: var(--leaf);
+            font-weight: 800;
+            font-size: 0.9rem;
+            width: fit-content;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        .site-footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 28px 12px 36px;
+            font-size: 0.94rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            animation: rise 0.7s ease forwards;
+        }
+
+        .reveal.delay-1 { animation-delay: 0.1s; }
+        .reveal.delay-2 { animation-delay: 0.2s; }
+        .reveal.delay-3 { animation-delay: 0.3s; }
+        .reveal.delay-4 { animation-delay: 0.4s; }
+
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 30px;
+            }
+
+            .playlist-grid,
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .episodes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .songs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .playlist-grid,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+<div class="backdrop-shape one" aria-hidden="true"></div>
+<div class="backdrop-shape two" aria-hidden="true"></div>
 
-<h1>Bruno i Fela ❤️</h1>
+<header class="site-header">
+    <div class="container header-row">
+        <a class="brand" href="#top" aria-label="Bruno i Fela - strona główna">
+            <span class="brand-badge" aria-hidden="true">BF</span>
+            <span>Bruno i Fela</span>
+        </a>
+        <nav class="nav" aria-label="Nawigacja strony">
+            <a href="#sluchowiska">Słuchowiska</a>
+            <a href="#piosenki">Piosenki</a>
+            <a href="#bohaterowie">Bohaterowie</a>
+            <a href="#kolorowanki">Kolorowanki</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top" class="container">
+    <section class="hero">
+        <div class="hero-copy reveal">
+            <h1>Leśne przygody, które dzieci pokochają</h1>
+            <p>
+                Strona dla rodziców i opiekunów, którzy chcą szybko znaleźć wszystkie słuchowiska i piosenki
+                z kanału YouTube Bruno i Fela. Tu zebraliśmy najważniejsze materiały w jednym miejscu.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://www.youtube.com/@BrunoiFela/playlists" target="_blank" rel="noopener noreferrer">Przejdź do playlist</a>
+                <a class="btn btn-secondary" href="#kolorowanki">Pobierz kolorowanki</a>
+            </div>
+        </div>
+        <div class="hero-visual reveal delay-1">
+            <img src="assets/pics/Bruno_i_Fela.JPEG" alt="Bruno i Fela razem">
+            <img src="assets/pics/Bruno_i_Fela1.JPEG" alt="Bruno i Fela - grafika promocyjna">
+            <img src="assets/pics/Dab.JPEG" alt="Dąb z opowieści Bruno i Fela">
+        </div>
+    </section>
+
+    <section id="sluchowiska" class="reveal delay-1">
+        <h2 class="section-title">Słuchowiska - Sezon 1</h2>
+        <p class="section-lead">
+            Witaj w Sezonie 1 naszego słuchowiska dla dzieci! 🌟 Poznaj bohaterów, przeżyj niezwykłe przygody i odkrywaj świat pełen wyobraźni. Każdy odcinek to nowa historia, która bawi, uczy i rozwija dziecięcą kreatywność. Miłego słuchania!
+        </p>
+
+        <div class="grid playlist-grid">
+            <article class="card">
+                <h3>Playlista: Słuchowiska (Sezon 1)</h3>
+                <p>
+                    Wszystkie odcinki sezonu 1 w jednym miejscu, gotowe do odtworzenia po kolei.
+                    Dzięki temu dziecko może wracać do ulubionych przygód Bruno i Feli kiedy tylko chce.
+                </p>
+                <p>
+                    <a class="btn btn-secondary" href="https://www.youtube.com/@BrunoiFela/playlists" target="_blank" rel="noopener noreferrer">Otwórz playlistę słuchowisk</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Sezon 1 w skrócie</h3>
+                <div class="episode-list">
+                    <div class="episode">
+                        <p class="episode-title">Od intro do Wielkiego Pikniku Leśnej Szkoły</p>
+                        <p>
+                            Sezon prowadzi dzieci przez przyjaźń, współpracę, odwagę i odkrywanie własnych talentów.
+                            Każdy odcinek porusza inny temat i daje pretekst do rozmowy z dzieckiem po wysłuchaniu historii.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="grid episodes-grid">
+            <article class="episode">
+                <span class="episode-code">S01E00</span>
+                <p class="episode-title">Intro: Witaj w Lesie Szumiących Liści</p>
+                <p>Witaj w magicznym Lesie Szumiących Liści - miejscu, gdzie każdy dzień przynosi nową przygodę. Poznaj Bruna, mądrego bobra, który uwielbia rozwiązywać zagadki i wszystko dokładnie planować. I Felę - odważną, pełną energii wiewiórkę, która zawsze pierwsza rusza na spotkanie przygód.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E01</span>
+                <p class="episode-title">Pierwszy dzień w Leśnej Szkole</p>
+                <p>Bruno i Fela rozpoczynają naukę w Leśnej Szkole pod Wielkim Dębem. W pierwszym odcinku poznają nowych przyjaciół, nauczycielkę Panią Sowę i przekonują się, że pierwszy dzień szkoły wcale nie musi być straszny.</p>
+                <p>Bajka dla dzieci w wieku 6-8 lat. Idealna na dobranoc, podróż samochodem lub wspólne słuchanie z rodzicami.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E02</span>
+                <p class="episode-title">Wielki Wyścig do Dzwonka</p>
+                <p>Fela jest przekonana, że jest najszybszą wiewiórką w całym Lesie Szumiących Liści. Kiedy w Leśnej Szkole zostaje ogłoszony Wielki Wyścig do Dzwonka, postanawia wszystkim to udowodnić. Czy pewność siebie wystarczy do zwycięstwa?</p>
+                <p>Zabawna i ciepła bajka dla dzieci o przyjaźni, pokorze i wierze we własne możliwości.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E03</span>
+                <p class="episode-title">Domek dla Jeżyka Julka</p>
+                <p>W Leśnej Szkole uczniowie otrzymują wyjątkowe zadanie - mają zbudować domek dla Jeżyka Julka. Bruno chce wszystko dokładnie zaplanować, a Fela woli od razu działać. Czy uda im się współpracować i stworzyć najlepszy domek w całym lesie?</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E04</span>
+                <p class="episode-title">Pierwsza klasówka z szyszek</p>
+                <p>W Leśnej Szkole zbliża się pierwsza wielka klasówka z rozpoznawania szyszek. Bruno jest spokojny - od dawna zna wszystkie gatunki drzew. Fela natomiast odkrywa, że im bardziej próbuje wszystko zapamiętać, tym bardziej wszystko jej się miesza.</p>
+                <p>Na szczęście prawdziwy przyjaciel wie, że najlepsza nauka to taka, która sprawia radość. Ciepła, pełna humoru opowieść o tym, że proszenie o pomoc nie jest oznaką słabości, a wspólna nauka potrafi zamienić największy stres w świetną zabawę.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E05</span>
+                <p class="episode-title">Nocowanie pod Wielkim Dębem</p>
+                <p>W Leśnej Szkole nadchodzi najbardziej wyczekiwany wieczór w całym semestrze - wspólne nocowanie pod Wielkim Dębem. W ciągu dnia wszyscy są odważni i podekscytowani, ale gdy zapada zmrok, las zaczyna wydawać zupełnie inne dźwięki.</p>
+                <p>Czy Fela i Bruno odkryją, że strach czasem podpowiada nam rzeczy, których wcale nie ma? Ciepła i zabawna opowieść o tym, że odwaga nie oznacza braku strachu, lecz działanie mimo niego.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E06</span>
+                <p class="episode-title">Największy Skoczek Leśnej Szkoły</p>
+                <p>Po nocnym deszczu na leśnej ścieżce pojawia się ogromna kałuża. Niektórzy twierdzą, że nie da się jej przeskoczyć. To wystarczy, żeby wszyscy zaczęli wymyślać coraz zabawniejsze sposoby na zdobycie tytułu „Największego Skoczka Leśnej Szkoły”.</p>
+                <p>Bruno przygotowuje dokładny plan, a Fela jest przekonana, że wystarczy dobry rozpęd. Czy naprawdę warto ryzykować tylko po to, żeby zaimponować innym?</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E07</span>
+                <p class="episode-title">Dzień Zamiany Talentów</p>
+                <p>W Leśnej Szkole nauczyciel ogłasza wyjątkowe wyzwanie - przez cały dzień każdy ma spróbować zachowywać się jak ktoś zupełnie inny. Bruno postanawia być spontaniczny jak Fela, a Fela chce być uporządkowana jak Bruno.</p>
+                <p>Szybko okazuje się, że bycie kimś innym wcale nie jest takie proste. Pełna humoru opowieść o tym, że każdy ma własne talenty, a prawdziwa przyjaźń polega na docenianiu różnic.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E08</span>
+                <p class="episode-title">Zaginiona mapa wyprawy</p>
+                <p>W Leśnej Szkole przygotowania do Wielkiej Wyprawy zostają niespodziewanie przerwane. Znika jedyna mapa prowadząca do Leśnej Polany Odkrywców. Fela jest przekonana, że znajdzie ją w kilka minut, a Bruno chce dokładnie przeanalizować wszystkie tropy.</p>
+                <p>Dopiero gdy połączą swoje siły, odkryją, że najlepszy detektyw to nie ten, który wszystko robi sam, ale ten, który potrafi współpracować.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E09</span>
+                <p class="episode-title">Wielki Mecz Lasu</p>
+                <p>W Leśnej Szkole wszyscy czekają na coroczny Wielki Mecz Lasu. Fela marzy o strzeleniu zwycięskiego gola, a Bruno przygotowuje dokładną taktykę. Jednak kiedy mecz się rozpoczyna, szybko okazuje się, że samo zdobywanie bramek nie wystarczy.</p>
+                <p>Największym sukcesem jest współpraca całej drużyny i dobra zabawa.</p>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">S01E10</span>
+                <p class="episode-title">Wielki Piknik Leśnej Szkoły</p>
+                <p>Nadszedł dzień Wielkiego Pikniku Leśnej Szkoły - najbardziej wyczekiwanego wydarzenia całego roku. Na leśnej polanie spotykają się wszyscy uczniowie, rodziny i przyjaciele. Bruno i Fela pomagają przygotować piknik, wspominając wszystkie przygody, które przeżyli od pierwszego dnia szkoły.</p>
+                <p>Kiedy niespodziewanie nad polanę nadciąga silny wiatr, okazuje się, że dzięki przyjaźni i współpracy nawet największe zamieszanie może zakończyć się wspaniałą zabawą.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="piosenki" class="reveal delay-2">
+        <h2 class="section-title">Piosenki z kanału Bruno i Fela</h2>
+        <p class="section-lead">
+            Wesołe piosenki do wspólnego śpiewania, tańczenia i zabawy. Idealne na poranki,
+            drogę do przedszkola i rodzinne popołudnia.
+        </p>
+        <div class="grid playlist-grid">
+            <article class="card">
+                <h3>Playlista: Piosenki</h3>
+                <p>
+                    Zbiór utworów muzycznych dostępnych na YouTube. Wygodny dostęp do wszystkich piosenek
+                    z kanału Bruno i Fela.
+                </p>
+                <p>
+                    <a class="btn btn-secondary" href="https://www.youtube.com/@BrunoiFela/playlists" target="_blank" rel="noopener noreferrer">Otwórz playlistę piosenek</a>
+                </p>
+            </article>
+            <article class="card">
+                <h3>Dla rodziców</h3>
+                <p>
+                    Zachęcamy, aby po wysłuchaniu odcinka lub piosenki porozmawiać z dzieckiem o emocjach,
+                    przyjaźni i odkrywaniu świata. To dobry sposób na wspólne, wartościowe chwile.
+                </p>
+            </article>
+        </div>
+
+        <div class="grid songs-grid">
+            <article class="episode">
+                <span class="episode-code">UTWÓR 01</span>
+                <p class="episode-title">Bruno i Fela</p>
+                <p>Poznajcie Bruno i Fele! Wesoła, ciepła, dziecięca piosenka o przygodach przyjaciół w Lesie Szumiących Liści.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=2DtFINUmv-U&list=PLaKEOKj_V5fM&index=10" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 02</span>
+                <p class="episode-title">Bruno i listy</p>
+                <p>Bruno i jego listy. Wesoła piosenka o Brunie - młodym bobrze, który kocha książki, listy, porządek i dobre pomysły.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=7vHaNplAJyc&list=PLaKEOKj_V5fM&index=9" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 03</span>
+                <p class="episode-title">Fela na gałązce</p>
+                <p>Poznajcie Fele! Piosenka o odważnej wiewiórce, która szybko biega, wysoko skacze i zawsze jest gotowa na nową przygodę.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=XlzkkRL7VO4&list=PLaKEOKj_V5fM&index=8" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 04</span>
+                <p class="episode-title">Las Szumiących Liści</p>
+                <p>Spokojna, magiczna piosenka opisująca Las Szumiących Liści. Niech dzieci wyobrażą sobie szumiące drzewa, śpiewające ptaki, strumień, kolorowe liście, leśne zwierzęta i Wielki Dąb, w którym mieści się szkoła.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=3oIBK2h45T8&list=PLaKEOKj_V5fM&index=7" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 05</span>
+                <p class="episode-title">Dębowa szkoła</p>
+                <p>Radosna piosenka o szkole ukrytej w ogromnym dębie. Nauka przez zabawę, przyjaciele, wspólne odkrywanie świata, śmiech i codzienne przygody - tak właśnie powinna kojarzyć się nam ta piosenka.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=E3EMefb0tZE&list=PLaKEOKj_V5fM&index=6" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 06</span>
+                <p class="episode-title">Plan i skok</p>
+                <p>Ciepła piosenka o przyjaźni Bruna i Feli. Bruno lubi planować, Fela działa spontanicznie, ale razem tworzą świetny zespół!</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=aEQeG2sgDUQ&list=PLaKEOKj_V5fM&index=5" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 07</span>
+                <p class="episode-title">Hej Przygodo!</p>
+                <p>Skoczna, pełna energii piosenka o codziennych przygodach Bruna i Feli. Poszukiwanie skarbów, budowanie domków, wyścigi, odkrywanie tajemnic lasu i pomaganie innym zwierzętom to jest to, co Bruno i Fela kochają najbardziej.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=5LKj3oYT6jg&list=PLaKEOKj_V5fM&index=4" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 08</span>
+                <p class="episode-title">Wakacje!</p>
+                <p>Wakacje! Wesoła letnia piosenka o wakacjach Bruna i Feli. Pikniki nad strumieniem, pływanie, zbieranie malin oraz wszystko, na co tylko mają ochotę!</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=Rqqxqz0Ubn8&list=PLaKEOKj_V5fM&index=3" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 09</span>
+                <p class="episode-title">Kasztany pod dębami</p>
+                <p>Ciepła piosenka o kolorowej jesieni w Lesie Szumiących Liści.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=hgA7UzLTWZ4&list=PLaKEOKj_V5fM&index=2" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+
+            <article class="episode">
+                <span class="episode-code">UTWÓR 10</span>
+                <p class="episode-title">Śpijcie już dzieci! Kołysanka</p>
+                <p>Bardzo spokojna kołysanka dla dzieci. Bruno i Fela wracają po całym dniu przygód do domu.</p>
+                <a class="song-link" href="https://www.youtube.com/watch?v=-7RIytx17fg&list=PLaKEOKj_V5fM&index=1" target="_blank" rel="noopener noreferrer">Słuchaj na YouTube</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="bohaterowie" class="reveal delay-3">
+        <h2 class="section-title">Poznaj Bohaterów</h2>
+        <p class="section-lead">
+            Bruno, Fela i mądry dąb tworzą wyjątkowy, ciepły świat opowieści. Galeria poniżej przedstawia
+            wybrane grafiki z ich przygód.
+        </p>
+        <div class="grid gallery">
+            <figure><img src="assets/pics/Bruno_i_Fela.JPEG" alt="Bruno i Fela - ilustracja 1"></figure>
+            <figure><img src="assets/pics/Bruno_i_Fela1.JPEG" alt="Bruno i Fela - ilustracja 2"></figure>
+            <figure><img src="assets/pics/Dab.JPEG" alt="Dąb - opiekun leśnej szkoły"></figure>
+        </div>
+    </section>
+
+    <section id="kolorowanki" class="reveal delay-4">
+        <h2 class="section-title">Kolorowanki Do Pobrania</h2>
+        <p class="section-lead">
+            Pobierz i wydrukuj kolorowanki, aby dzieci mogły tworzyć własne wersje bohaterów Bruno i Fela.
+            Każda grafika jest dostępna po kliknięciu przycisku pobierania.
+        </p>
+        <div class="grid coloring-grid">
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/1_Bruno_i_Fela.jpeg" alt="Kolorowanka Bruno i Fela 1">
+                <div class="meta"><h4>Kolorowanka 1</h4><a class="download-link" href="assets/kolorowanki/1_Bruno_i_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/2_Fela.jpeg" alt="Kolorowanka Fela 2">
+                <div class="meta"><h4>Kolorowanka 2</h4><a class="download-link" href="assets/kolorowanki/2_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/3_Fela.jpeg" alt="Kolorowanka Fela 3">
+                <div class="meta"><h4>Kolorowanka 3</h4><a class="download-link" href="assets/kolorowanki/3_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/4_Fela.jpeg" alt="Kolorowanka Fela 4">
+                <div class="meta"><h4>Kolorowanka 4</h4><a class="download-link" href="assets/kolorowanki/4_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/5_Fela.jpeg" alt="Kolorowanka Fela 5">
+                <div class="meta"><h4>Kolorowanka 5</h4><a class="download-link" href="assets/kolorowanki/5_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/6_Fela.jpeg" alt="Kolorowanka Fela 6">
+                <div class="meta"><h4>Kolorowanka 6</h4><a class="download-link" href="assets/kolorowanki/6_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/7_Fela.jpeg" alt="Kolorowanka Fela 7">
+                <div class="meta"><h4>Kolorowanka 7</h4><a class="download-link" href="assets/kolorowanki/7_Fela.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/8_Bruno.jpeg" alt="Kolorowanka Bruno 8">
+                <div class="meta"><h4>Kolorowanka 8</h4><a class="download-link" href="assets/kolorowanki/8_Bruno.jpeg" download>Pobierz JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="assets/kolorowanki/9_Bruno.jpeg" alt="Kolorowanka Bruno 9">
+                <div class="meta"><h4>Kolorowanka 9</h4><a class="download-link" href="assets/kolorowanki/9_Bruno.jpeg" download>Pobierz JPG</a></div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    Bruno i Fela • Słuchowiska i piosenki dla dzieci • Oficjalna strona fanowska materiałów z kanału YouTube
+</footer>
 
 </body>
 </html>
