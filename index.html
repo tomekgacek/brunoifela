@@ -370,6 +370,41 @@
             transform: scale(1.06);
         }
 
+        .character-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .character-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .character-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .character-copy {
+            padding: 18px;
+        }
+
+        .character-copy h3 {
+            margin: 0;
+            font-family: "Baloo 2", cursive;
+            font-size: 1.5rem;
+        }
+
+        .character-copy p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
         .coloring-grid {
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
         }
@@ -455,6 +490,10 @@
             .songs-grid {
                 grid-template-columns: 1fr;
             }
+
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 640px) {
@@ -512,13 +551,15 @@
             </div>
         </div>
         <div class="hero-visual reveal delay-1">
-            <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
-                <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
-            </video>
             <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela1.JPEG" aria-label="Bruno tańczy solo">
                 <source src="assets/pics/Dance_Bruno.MP4" type="video/mp4">
             </video>
-            <img src="assets/pics/Dab.JPEG" alt="Dąb z opowieści Bruno i Fela">
+            <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Fela tańczy solo">
+                <source src="assets/pics/Fela.MP4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
+                <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
+            </video>
         </div>
     </section>
 
@@ -527,6 +568,7 @@
         <p class="section-lead">
             Witaj w Sezonie 1 naszego słuchowiska dla dzieci! 🌟 Poznaj bohaterów, przeżyj niezwykłe przygody i odkrywaj świat pełen wyobraźni. Każdy odcinek to nowa historia, która bawi, uczy i rozwija dziecięcą kreatywność. Miłego słuchania!
         </p>
+        <p class="section-lead">Bajka dla dzieci w wieku 6-8 lat. Idealna na dobranoc, podróż samochodem lub wspólne słuchanie z rodzicami.</p>
 
         <div class="grid playlist-grid">
             <article class="card">
@@ -544,7 +586,7 @@
                 <h3>Sezon 1 w skrócie</h3>
                 <div class="episode-list">
                     <div class="episode">
-                        <p class="episode-title">Od intro do Wielkiego Pikniku Leśnej Szkoły</p>
+                        <p class="episode-title">Od Pierwszego Dnia aż do Wielkiego Pikniku Leśnej Szkoły</p>
                         <p>
                             Sezon prowadzi dzieci przez przyjaźń, współpracę, odwagę i odkrywanie własnych talentów.
                             Każdy odcinek porusza inny temat i daje pretekst do rozmowy z dzieckiem po wysłuchaniu historii.
@@ -565,7 +607,6 @@
                 <span class="episode-code">S01E01</span>
                 <p class="episode-title">Pierwszy dzień w Leśnej Szkole</p>
                 <p>Bruno i Fela rozpoczynają naukę w Leśnej Szkole pod Wielkim Dębem. W pierwszym odcinku poznają nowych przyjaciół, nauczycielkę Panią Sowę i przekonują się, że pierwszy dzień szkoły wcale nie musi być straszny.</p>
-                <p>Bajka dla dzieci w wieku 6-8 lat. Idealna na dobranoc, podróż samochodem lub wspólne słuchanie z rodzicami.</p>
             </article>
 
             <article class="episode">
@@ -734,25 +775,24 @@
     <section id="bohaterowie" class="reveal delay-3">
         <h2 class="section-title">Poznaj Bohaterów</h2>
         <p class="section-lead">
-            Bruno, Fela i mądry dąb tworzą wyjątkowy, ciepły świat opowieści. Galeria poniżej przedstawia
-            wybrane grafiki z ich przygód.
+            Bruno i Fela to duet zupełnie różnych charakterów. Właśnie dzięki tym różnicom ich wspólne przygody
+            są tak ciekawe, zabawne i pełne dobrych emocji.
         </p>
-        <div class="grid gallery">
-            <figure>
-                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
-                    <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
-                </video>
-            </figure>
-            <figure>
-                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela1.JPEG" aria-label="Bruno tańczy">
-                    <source src="assets/pics/Dance_Bruno.MP4" type="video/mp4">
-                </video>
-            </figure>
-            <figure>
-                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Dab.JPEG" aria-label="Fela tańczy">
-                    <source src="assets/pics/Fela.MP4" type="video/mp4">
-                </video>
-            </figure>
+        <div class="grid character-grid">
+            <article class="character-card">
+                <img src="assets/pics/Bruno_i_Fela1.JPEG" alt="Bóbr Bruno na ilustracji Bruno i Fela">
+                <div class="character-copy">
+                    <h3>Bóbr Bruno</h3>
+                    <p>Bruno to bardzo inteligentny mały bóbr, który najlepiej czuje się wtedy, gdy może wszystko spokojnie przemyśleć. Uwielbia planować kolejne kroki, szukać sprytnych rozwiązań i porządkować świat wokół siebie. Często nosi przy sobie mały notatnik, bo lubi zapisywać pomysły i ważne obserwacje. Bywa też tak, że analizuje więcej niż trzeba, ale właśnie to sprawia, że potrafi zauważyć rzeczy, które umykają innym.</p>
+                </div>
+            </article>
+            <article class="character-card">
+                <img src="assets/pics/Bruno_i_Fela.JPEG" alt="Wiewiórka Fela na ilustracji Bruno i Fela">
+                <div class="character-copy">
+                    <h3>Wiewiórka Fela</h3>
+                    <p>Fela jest szybka, pełna energii i niemal zawsze gotowa do działania. Odważnie rusza tam, gdzie dzieje się coś ciekawego, a nowe przygody przyciągają ją jak magnes. Ma w sobie dużo spontaniczności, dlatego często działa zanim zdąży wszystko dokładnie przemyśleć. To właśnie jej żywiołowość, entuzjazm i wielkie serce sprawiają, że wnosi do każdej historii ruch, radość i odrobinę szalonej odwagi.</p>
+                </div>
+            </article>
         </div>
     </section>
 
