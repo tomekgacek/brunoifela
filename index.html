@@ -203,7 +203,8 @@
             gap: 12px;
         }
 
-        .hero-visual img {
+        .hero-visual img,
+        .hero-visual video {
             width: 100%;
             aspect-ratio: 4 / 3;
             object-fit: cover;
@@ -211,15 +212,18 @@
             box-shadow: var(--shadow);
         }
 
-        .hero-visual img:nth-child(1) {
+        .hero-visual img:nth-child(1),
+        .hero-visual video:nth-child(1) {
             transform: rotate(-3deg);
         }
 
-        .hero-visual img:nth-child(2) {
+        .hero-visual img:nth-child(2),
+        .hero-visual video:nth-child(2) {
             transform: rotate(2deg) translateY(14px);
         }
 
-        .hero-visual img:nth-child(3) {
+        .hero-visual img:nth-child(3),
+        .hero-visual video:nth-child(3) {
             transform: rotate(1deg);
             grid-column: 1 / -1;
             aspect-ratio: 16 / 8;
@@ -352,7 +356,8 @@
             box-shadow: var(--shadow);
         }
 
-        .gallery img {
+        .gallery img,
+        .gallery video {
             width: 100%;
             aspect-ratio: 1 / 1;
             object-fit: cover;
@@ -360,7 +365,8 @@
             transition: transform 0.35s ease;
         }
 
-        .gallery figure:hover img {
+        .gallery figure:hover img,
+        .gallery figure:hover video {
             transform: scale(1.06);
         }
 
@@ -506,8 +512,12 @@
             </div>
         </div>
         <div class="hero-visual reveal delay-1">
-            <img src="assets/pics/Bruno_i_Fela.JPEG" alt="Bruno i Fela razem">
-            <img src="assets/pics/Bruno_i_Fela1.JPEG" alt="Bruno i Fela - grafika promocyjna">
+            <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
+                <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela1.JPEG" aria-label="Bruno tańczy solo">
+                <source src="assets/pics/Dance_Bruno.MP4" type="video/mp4">
+            </video>
             <img src="assets/pics/Dab.JPEG" alt="Dąb z opowieści Bruno i Fela">
         </div>
     </section>
@@ -728,9 +738,21 @@
             wybrane grafiki z ich przygód.
         </p>
         <div class="grid gallery">
-            <figure><img src="assets/pics/Bruno_i_Fela.JPEG" alt="Bruno i Fela - ilustracja 1"></figure>
-            <figure><img src="assets/pics/Bruno_i_Fela1.JPEG" alt="Bruno i Fela - ilustracja 2"></figure>
-            <figure><img src="assets/pics/Dab.JPEG" alt="Dąb - opiekun leśnej szkoły"></figure>
+            <figure>
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
+                    <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
+                </video>
+            </figure>
+            <figure>
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela1.JPEG" aria-label="Bruno tańczy">
+                    <source src="assets/pics/Dance_Bruno.MP4" type="video/mp4">
+                </video>
+            </figure>
+            <figure>
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Dab.JPEG" aria-label="Fela tańczy">
+                    <source src="assets/pics/Fela.MP4" type="video/mp4">
+                </video>
+            </figure>
         </div>
     </section>
 
