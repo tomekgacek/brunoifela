@@ -1,0 +1,5 @@
+/publisher
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/publisher/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet

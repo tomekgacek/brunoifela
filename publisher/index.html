@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruno i Fela | Publisher Preview</title>
+    <meta name="description" content="Publisher Preview projektu Bruno i Fela.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --ink: #1b2430;
+            --muted: #5b6674;
+            --line: #d8dee9;
+            --card: #ffffff;
+            --accent: #0d6f43;
+            --accent-2: #0a5935;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: linear-gradient(180deg, #f9fbff 0%, #eef3f9 100%);
+            padding: 28px 14px;
+        }
+
+        .room {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 24px 48px rgba(20, 31, 48, 0.1);
+            padding: 28px;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1;
+        }
+
+        .sub {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .stack {
+            margin-top: 24px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #effff7;
+            font-size: 1.05rem;
+            font-weight: 800;
+            padding: 14px 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.04);
+        }
+
+        .link {
+            display: block;
+            text-decoration: none;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 13px 14px;
+            font-weight: 700;
+            background: #fafcff;
+        }
+
+        .link:hover {
+            background: #f2f6fc;
+        }
+
+        .contact {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .contact strong {
+            color: var(--ink);
+            display: block;
+            margin-top: 6px;
+        }
+
+        .audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="room">
+        <h1>Bruno i Fela</h1>
+        <p class="sub">Publisher Preview</p>
+
+        <div class="stack">
+            <button id="playTrailer" class="btn" type="button">▶ Posłuchaj 90 sekund</button>
+            <audio id="trailerAudio" class="audio" preload="none" src="../assets/wydawcy/Bruno_i_Fela_sample.mp3"></audio>
+
+            <button id="playEpisode" class="btn" type="button">▶ Posłuchaj odcinka 1</button>
+            <audio id="episodeAudio" class="audio" preload="none" src="../assets/wydawcy/Bruno_i_Fela_s01E01.mp3"></audio>
+
+            <a class="link" href="../assets/wydawcy/Bruno_i_Fela_Publisher_Pitch_Deck.pdf" download>Pobierz Pitch Deck (Bruno_i_Fela_Publisher_Pitch_Deck.pdf)</a>
+            <a class="link" href="../assets/wydawcy/Pobierz%20One%20Pager.pdf" download>Pobierz One Pager (Pobierz One Pager.pdf)</a>
+        </div>
+
+        <div class="contact">
+            Kontakt:
+            <strong>Tomasz Gacek</strong>
+        </div>
+    </main>
+
+    <script>
+        const trailerBtn = document.getElementById("playTrailer");
+        const trailerAudio = document.getElementById("trailerAudio");
+        const episodeBtn = document.getElementById("playEpisode");
+        const episodeAudio = document.getElementById("episodeAudio");
+
+        function wireButton(button, audio, label) {
+            button.addEventListener("click", () => {
+                if (audio.paused) {
+                    episodeAudio.pause();
+                    trailerAudio.pause();
+                    audio.play();
+                    button.textContent = "⏸ Wstrzymaj";
+                } else {
+                    audio.pause();
+                    button.textContent = label;
+                }
+            });
+
+            audio.addEventListener("ended", () => {
+                button.textContent = label;
+            });
+
+            audio.addEventListener("pause", () => {
+                if (audio.currentTime > 0 && !audio.ended) {
+                    button.textContent = label;
+                }
+            });
+        }
+
+        wireButton(trailerBtn, trailerAudio, "▶ Posłuchaj 90 sekund");
+        wireButton(episodeBtn, episodeAudio, "▶ Posłuchaj odcinka 1");
+    </script>
+</body>
+</html>
