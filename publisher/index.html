@@ -70,6 +70,26 @@
             padding: 28px;
         }
 
+        .brand-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--leaf), var(--sky));
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            box-shadow: 0 8px 18px rgba(47, 143, 91, 0.3);
+            flex-shrink: 0;
+        }
+
         h1 {
             margin: 0;
             font-family: "Baloo 2", cursive;
@@ -147,7 +167,10 @@
     <div class="backdrop-shape one" aria-hidden="true"></div>
     <div class="backdrop-shape two" aria-hidden="true"></div>
     <main class="room">
-        <h1>Bruno i Fela</h1>
+        <div class="brand-row">
+            <span class="brand-badge" aria-hidden="true">BF</span>
+            <h1>Bruno i Fela</h1>
+        </div>
         <p class="sub">Publisher Preview</p>
 
         <div class="stack">

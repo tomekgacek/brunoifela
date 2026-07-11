@@ -70,20 +70,40 @@
             padding: 26px;
         }
 
-        .cover {
-            width: min(520px, 100%);
-            margin: 0 auto;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
+        .hero-head {
+            display: grid;
+            justify-items: center;
+            text-align: center;
+            gap: 10px;
         }
 
-        .cover img {
-            width: 100%;
-            display: block;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+        .brand-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Baloo 2", cursive;
+            font-weight: 800;
+            font-size: 1.55rem;
+            color: var(--ink);
+        }
+
+        .brand-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--leaf), var(--sky));
+            color: #fff;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 18px rgba(47, 143, 91, 0.3);
+        }
+
+        .head-note {
+            margin: 0;
+            color: var(--muted);
+            font-weight: 700;
+            max-width: 42ch;
         }
 
         .tagline {
@@ -118,6 +138,36 @@
 
         .audio {
             display: none;
+        }
+
+        .progress-wrap {
+            margin: 12px auto 0;
+            width: min(420px, 100%);
+        }
+
+        .progress-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .progress-track {
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(31, 42, 42, 0.12);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--leaf), var(--sky));
+            transition: width 0.1s linear;
         }
 
         .next-step {
@@ -211,13 +261,26 @@
     <div class="backdrop-shape one" aria-hidden="true"></div>
     <div class="backdrop-shape two" aria-hidden="true"></div>
     <main class="panel" aria-label="Strefa odsłuchu Bruno i Fela">
-        <div class="cover">
-            <img src="../assets/pics/Bruno_i_Fela.JPEG" alt="Okładka Bruno i Fela">
+        <div class="hero-head">
+            <div class="brand-mini">
+                <span class="brand-badge" aria-hidden="true">BF</span>
+                <span>Bruno i Fela</span>
+            </div>
+            <p class="head-note">Strefa odsłuchu dla wydawcy</p>
         </div>
 
         <p class="tagline"><strong>Posłuchaj 90 sekund, które przeniosą Cię do świata Bruna i Feli.</strong></p>
 
         <button id="playTrailer" class="play-btn" type="button">▶ Odtwórz</button>
+        <div class="progress-wrap" aria-live="polite">
+            <div class="progress-meta">
+                <span>Sample 90 s</span>
+                <span id="trailerTime">1:30</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Postęp odsłuchu sampla" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0">
+                <div id="trailerProgress" class="progress-fill"></div>
+            </div>
+        </div>
         <audio id="trailerAudio" class="audio" preload="none" src="../assets/wydawcy/Bruno_i_Fela_sample.mp3"></audio>
         <section id="nextStep" class="next-step" aria-live="polite" aria-hidden="true">
             <p>Gotowe. Czas na pełną historię.</p>
@@ -240,11 +303,30 @@
     <script>
         const trailerBtn = document.getElementById("playTrailer");
         const trailerAudio = document.getElementById("trailerAudio");
+        const trailerProgress = document.getElementById("trailerProgress");
+        const trailerTime = document.getElementById("trailerTime");
         const episodeBtn = document.getElementById("playEpisode");
         const episodeAudio = document.getElementById("episodeAudio");
         const nextStep = document.getElementById("nextStep");
         const goEpisode = document.getElementById("goEpisode");
         const fullEpisode = document.getElementById("fullEpisode");
+        const progressTrack = document.querySelector(".progress-track");
+
+        function formatTime(seconds) {
+            const secs = Math.max(0, Math.ceil(seconds));
+            const mins = Math.floor(secs / 60);
+            const rest = String(secs % 60).padStart(2, "0");
+            return `${mins}:${rest}`;
+        }
+
+        function updateTrailerProgress() {
+            const duration = trailerAudio.duration || 90;
+            const current = trailerAudio.currentTime || 0;
+            const percentage = Math.min(100, (current / duration) * 100);
+            trailerProgress.style.width = `${percentage}%`;
+            trailerTime.textContent = formatTime(duration - current);
+            progressTrack.setAttribute("aria-valuenow", String(Math.floor(current)));
+        }
 
         function revealNextStep() {
             nextStep.classList.add("visible");
@@ -278,7 +360,15 @@
         wireButton(trailerBtn, trailerAudio, "▶ Odtwórz");
         wireButton(episodeBtn, episodeAudio, "▶ Posłuchaj całego odcinka");
 
+        trailerAudio.addEventListener("timeupdate", updateTrailerProgress);
+        trailerAudio.addEventListener("loadedmetadata", updateTrailerProgress);
+
         trailerAudio.addEventListener("ended", revealNextStep);
+        trailerAudio.addEventListener("ended", () => {
+            trailerProgress.style.width = "100%";
+            trailerTime.textContent = "0:00";
+            progressTrack.setAttribute("aria-valuenow", "90");
+        });
 
         goEpisode.addEventListener("click", () => {
             fullEpisode.scrollIntoView({ behavior: "smooth", block: "start" });
