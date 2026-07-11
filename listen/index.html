@@ -117,6 +117,7 @@
         }
 
         .play-btn {
+            display: block;
             margin: 20px auto 0;
             width: min(360px, 100%);
             border: none;
@@ -143,6 +144,10 @@
         .progress-wrap {
             margin: 12px auto 0;
             width: min(420px, 100%);
+        }
+
+        .progress-wrap.secondary {
+            margin-top: 10px;
         }
 
         .progress-meta {
@@ -292,6 +297,15 @@
         <section id="fullEpisode" class="full-episode">
             <h2 class="full-title">Posłuchaj całego odcinka</h2>
             <button id="playEpisode" class="play-btn full-btn" type="button">▶ Posłuchaj całego odcinka</button>
+            <div class="progress-wrap secondary" aria-live="polite">
+                <div class="progress-meta">
+                    <span>Odcinek 1</span>
+                    <span id="episodeTime">0:00</span>
+                </div>
+                <div id="episodeTrack" class="progress-track" role="progressbar" aria-label="Postęp odsłuchu odcinka 1" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+                    <div id="episodeProgress" class="progress-fill"></div>
+                </div>
+            </div>
             <audio id="episodeAudio" class="audio" preload="none" src="../assets/wydawcy/Bruno_i_Fela_s01E01.mp3"></audio>
         </section>
 
@@ -305,12 +319,15 @@
         const trailerAudio = document.getElementById("trailerAudio");
         const trailerProgress = document.getElementById("trailerProgress");
         const trailerTime = document.getElementById("trailerTime");
+        const trailerTrack = document.querySelector(".progress-track");
         const episodeBtn = document.getElementById("playEpisode");
         const episodeAudio = document.getElementById("episodeAudio");
+        const episodeProgress = document.getElementById("episodeProgress");
+        const episodeTime = document.getElementById("episodeTime");
+        const episodeTrack = document.getElementById("episodeTrack");
         const nextStep = document.getElementById("nextStep");
         const goEpisode = document.getElementById("goEpisode");
         const fullEpisode = document.getElementById("fullEpisode");
-        const progressTrack = document.querySelector(".progress-track");
 
         function formatTime(seconds) {
             const secs = Math.max(0, Math.ceil(seconds));
@@ -319,13 +336,15 @@
             return `${mins}:${rest}`;
         }
 
-        function updateTrailerProgress() {
-            const duration = trailerAudio.duration || 90;
-            const current = trailerAudio.currentTime || 0;
+        function updateProgress(audio, fill, time, track, fallbackDuration = 0) {
+            const duration = audio.duration || fallbackDuration || 0;
+            const current = audio.currentTime || 0;
+            const max = Math.max(1, duration);
             const percentage = Math.min(100, (current / duration) * 100);
-            trailerProgress.style.width = `${percentage}%`;
-            trailerTime.textContent = formatTime(duration - current);
-            progressTrack.setAttribute("aria-valuenow", String(Math.floor(current)));
+            fill.style.width = `${Number.isFinite(percentage) ? percentage : 0}%`;
+            time.textContent = formatTime(Math.max(0, duration - current));
+            track.setAttribute("aria-valuemax", String(Math.floor(max)));
+            track.setAttribute("aria-valuenow", String(Math.floor(current)));
         }
 
         function revealNextStep() {
@@ -360,14 +379,22 @@
         wireButton(trailerBtn, trailerAudio, "▶ Odtwórz");
         wireButton(episodeBtn, episodeAudio, "▶ Posłuchaj całego odcinka");
 
-        trailerAudio.addEventListener("timeupdate", updateTrailerProgress);
-        trailerAudio.addEventListener("loadedmetadata", updateTrailerProgress);
+        trailerAudio.addEventListener("timeupdate", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 90));
+        trailerAudio.addEventListener("loadedmetadata", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 90));
+        episodeAudio.addEventListener("timeupdate", () => updateProgress(episodeAudio, episodeProgress, episodeTime, episodeTrack));
+        episodeAudio.addEventListener("loadedmetadata", () => updateProgress(episodeAudio, episodeProgress, episodeTime, episodeTrack));
 
         trailerAudio.addEventListener("ended", revealNextStep);
         trailerAudio.addEventListener("ended", () => {
             trailerProgress.style.width = "100%";
             trailerTime.textContent = "0:00";
-            progressTrack.setAttribute("aria-valuenow", "90");
+            trailerTrack.setAttribute("aria-valuenow", "90");
+        });
+
+        episodeAudio.addEventListener("ended", () => {
+            episodeProgress.style.width = "100%";
+            episodeTime.textContent = "0:00";
+            episodeTrack.setAttribute("aria-valuenow", episodeTrack.getAttribute("aria-valuemax") || "0");
         });
 
         goEpisode.addEventListener("click", () => {
