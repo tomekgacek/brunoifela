@@ -370,6 +370,212 @@
             transform: scale(1.06);
         }
 
+        .map-shell {
+            margin-top: 20px;
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .forest-map {
+            position: relative;
+            min-height: 440px;
+            border-radius: 24px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(255, 245, 184, 0.65), transparent 26%),
+                radial-gradient(circle at 20% 85%, rgba(139, 199, 112, 0.3), transparent 28%),
+                linear-gradient(140deg, #cfeab4 0%, #b7d995 36%, #a7d8cb 100%);
+            border: 1px solid rgba(31, 42, 42, 0.15);
+            box-shadow: var(--shadow);
+        }
+
+        .forest-map::before,
+        .forest-map::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .forest-map::before {
+            background:
+                radial-gradient(circle at 12% 22%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%),
+                radial-gradient(circle at 36% 31%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
+                radial-gradient(circle at 57% 62%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
+                radial-gradient(circle at 76% 41%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%),
+                radial-gradient(circle at 88% 79%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
+                radial-gradient(circle at 26% 75%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%);
+            opacity: 0.9;
+        }
+
+        .forest-map::after {
+            background:
+                linear-gradient(130deg, transparent 44%, rgba(233, 201, 143, 0.78) 44.5%, rgba(233, 201, 143, 0.78) 50.5%, transparent 51%),
+                linear-gradient(175deg, transparent 64%, rgba(185, 220, 233, 0.85) 64.5%, rgba(185, 220, 233, 0.85) 70%, transparent 70.5%);
+            mix-blend-mode: multiply;
+        }
+
+        .map-title {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            margin: 0;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.84);
+            font-family: "Baloo 2", cursive;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .map-marker {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: var(--berry);
+            box-shadow: 0 8px 16px rgba(31, 42, 42, 0.25);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            z-index: 3;
+        }
+
+        .map-marker:hover,
+        .map-marker:focus-visible,
+        .map-marker.active {
+            transform: translate(-50%, -50%) scale(1.16);
+            box-shadow: 0 10px 18px rgba(216, 88, 74, 0.38);
+            background: #be3f33;
+            outline: none;
+        }
+
+        .map-marker span {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #224238;
+            background: rgba(255, 255, 255, 0.84);
+            padding: 3px 7px;
+            border-radius: 999px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+        }
+
+        .map-panel {
+            background: var(--card);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .map-controls {
+            display: grid;
+            gap: 10px;
+        }
+
+        .map-controls label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #2a4c3e;
+            letter-spacing: 0.2px;
+        }
+
+        .map-controls select {
+            width: 100%;
+            border: 1px solid rgba(31, 42, 42, 0.22);
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-family: inherit;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .map-help {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .map-quick {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .map-chip {
+            border: 1px solid rgba(31, 42, 42, 0.14);
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.92);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #234338;
+        }
+
+        .map-chip:hover,
+        .map-chip:focus-visible {
+            background: rgba(124, 199, 194, 0.2);
+            outline: none;
+        }
+
+        .map-results {
+            margin-top: 4px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .map-item {
+            border-radius: 14px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .map-item h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-family: "Baloo 2", cursive;
+            line-height: 1.2;
+        }
+
+        .map-item p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .map-meta {
+            margin: 0;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .map-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #1f5f43;
+            background: rgba(47, 143, 91, 0.14);
+            border-radius: 999px;
+            padding: 4px 8px;
+        }
+
         .character-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -478,6 +684,14 @@
                 padding-top: 30px;
             }
 
+            .map-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .forest-map {
+                min-height: 360px;
+            }
+
             .playlist-grid,
             .gallery {
                 grid-template-columns: 1fr 1fr;
@@ -500,6 +714,14 @@
             .header-row {
                 align-items: flex-start;
                 flex-direction: column;
+            }
+
+            .forest-map {
+                min-height: 320px;
+            }
+
+            .map-marker span {
+                font-size: 0.73rem;
             }
 
             .nav {
@@ -530,6 +752,7 @@
         </a>
         <nav class="nav" aria-label="Nawigacja strony">
             <a href="#sluchowiska">Słuchowiska</a>
+            <a href="#mapa-sezonu">Mapa sezonu</a>
             <a href="#piosenki">Piosenki</a>
             <a href="#bohaterowie">Bohaterowie</a>
             <a href="#kolorowanki">Kolorowanki</a>
@@ -673,7 +896,45 @@
         </div>
     </section>
 
-    <section id="piosenki" class="reveal delay-2">
+    <section id="mapa-sezonu" class="reveal delay-2">
+        <h2 class="section-title">Mapa przygód - Sezon 1</h2>
+        <p class="section-lead">
+            Interaktywna mapa pokazująca, gdzie dzieje się akcja w kolejnych odcinkach. Kliknij punkt na mapie
+            albo wybierz odcinek, aby zobaczyć najważniejsze wydarzenia z danego miejsca.
+        </p>
+
+        <div class="map-shell">
+            <div class="forest-map" id="forestMap" aria-label="Mapa miejsc z sezonu 1">
+                <p class="map-title">Las Szumiących Liści</p>
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+                <div class="map-controls">
+                    <label for="episodeFilter">Wybierz odcinek</label>
+                    <select id="episodeFilter">
+                        <option value="all">Wszystkie odcinki</option>
+                        <option value="S01E01">S01E01</option>
+                        <option value="S01E02">S01E02</option>
+                        <option value="S01E03">S01E03</option>
+                        <option value="S01E04">S01E04</option>
+                        <option value="S01E05">S01E05</option>
+                        <option value="S01E06">S01E06</option>
+                        <option value="S01E07">S01E07</option>
+                        <option value="S01E08">S01E08</option>
+                        <option value="S01E09">S01E09</option>
+                        <option value="S01E10">S01E10</option>
+                    </select>
+                </div>
+
+                <p class="map-help" id="mapSummary">Wybierz punkt mapy albo odcinek, aby zawęzić wyniki.</p>
+
+                <div class="map-quick" id="quickLocations"></div>
+                <div class="map-results" id="mapResults"></div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="piosenki" class="reveal delay-3">
         <h2 class="section-title">Piosenki z kanału Bruno i Fela</h2>
         <p class="section-lead">
             Wesołe piosenki do wspólnego śpiewania, tańczenia i zabawy. Idealne na poranki,
@@ -772,7 +1033,7 @@
         </div>
     </section>
 
-    <section id="bohaterowie" class="reveal delay-3">
+    <section id="bohaterowie" class="reveal delay-4">
         <h2 class="section-title">Poznaj Bohaterów</h2>
         <p class="section-lead">
             Bruno i Fela to duet zupełnie różnych charakterów. Właśnie dzięki tym różnicom ich wspólne przygody
@@ -846,6 +1107,186 @@
 <footer class="site-footer">
     Bruno i Fela • Słuchowiska i piosenki dla dzieci • Oficjalna strona fanowska materiałów z kanału YouTube
 </footer>
+
+<script>
+    const seasonMapData = [
+        {
+            id: "school",
+            name: "Leśna Szkoła pod Dębem",
+            x: 44,
+            y: 47,
+            events: [
+                { episode: "S01E01", action: "Pierwszy dzień szkoły i poznanie klasy Pani Sowy." },
+                { episode: "S01E03", action: "Bruno i Fela budują schronienie dla Jeżyka Julka." },
+                { episode: "S01E04", action: "Wielka klasówka z rozpoznawania szyszek." },
+                { episode: "S01E07", action: "Dzień zamiany ról i wspólna budowa karmnika." }
+            ]
+        },
+        {
+            id: "dzwonek",
+            name: "Plac i trasa do dzwonka",
+            x: 28,
+            y: 58,
+            events: [
+                { episode: "S01E02", action: "Wyścig wokół dębu, przez mostek nad strumykiem i z powrotem na plac." }
+            ]
+        },
+        {
+            id: "polana",
+            name: "Polana Odkrywców",
+            x: 62,
+            y: 32,
+            events: [
+                { episode: "S01E05", action: "Nocowanie pod Wielkim Dębem, ognisko i nocne odgłosy lasu." },
+                { episode: "S01E09", action: "Wielki mecz z bramkami ustawionymi na polanie." },
+                { episode: "S01E10", action: "Wielki Piknik Leśnej Szkoły i finałowe wspomnienia sezonu." }
+            ]
+        },
+        {
+            id: "kałuża",
+            name: "Leśna ścieżka po burzy",
+            x: 78,
+            y: 56,
+            events: [
+                { episode: "S01E06", action: "Największa Kałuża Świata i budowa mostu dla całej klasy." }
+            ]
+        },
+        {
+            id: "ogrodek",
+            name: "Szkolny ogródek",
+            x: 52,
+            y: 64,
+            events: [
+                { episode: "S01E01", action: "Zwiedzanie szkolnego ogródka i leśnej biblioteki." },
+                { episode: "S01E08", action: "Trop świeżego listka prowadzi do rozwiązania zagadki mapy." }
+            ]
+        },
+        {
+            id: "gniazdo",
+            name: "Stare gniazdo sroki",
+            x: 70,
+            y: 18,
+            events: [
+                { episode: "S01E08", action: "W gnieździe odnaleziono zaginioną mapę wyprawy." }
+            ]
+        },
+        {
+            id: "boisko",
+            name: "Leśne boisko",
+            x: 36,
+            y: 26,
+            events: [
+                { episode: "S01E09", action: "Wspólna gra zespołowa i gol Jeżyka Julka." },
+                { episode: "S01E10", action: "Wspomnienia meczu podczas przygotowań do pikniku." }
+            ]
+        }
+    ];
+
+    const forestMap = document.getElementById("forestMap");
+    const mapResults = document.getElementById("mapResults");
+    const mapSummary = document.getElementById("mapSummary");
+    const episodeFilter = document.getElementById("episodeFilter");
+    const quickLocations = document.getElementById("quickLocations");
+
+    let activeLocation = "all";
+
+    function createMarker(location) {
+        const marker = document.createElement("button");
+        marker.className = "map-marker";
+        marker.style.left = location.x + "%";
+        marker.style.top = location.y + "%";
+        marker.type = "button";
+        marker.setAttribute("data-location", location.id);
+        marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
+        marker.innerHTML = "<span>" + location.name + "</span>";
+        marker.addEventListener("click", () => {
+            activeLocation = location.id;
+            renderMap();
+        });
+        return marker;
+    }
+
+    function createLocationChip(location) {
+        const chip = document.createElement("button");
+        chip.className = "map-chip";
+        chip.type = "button";
+        chip.textContent = location.name;
+        chip.addEventListener("click", () => {
+            activeLocation = location.id;
+            renderMap();
+        });
+        return chip;
+    }
+
+    function matchesEpisode(event, selectedEpisode) {
+        return selectedEpisode === "all" || event.episode === selectedEpisode;
+    }
+
+    function renderMap() {
+        const selectedEpisode = episodeFilter.value;
+
+        forestMap.querySelectorAll(".map-marker").forEach((marker) => marker.remove());
+        quickLocations.innerHTML = "";
+        mapResults.innerHTML = "";
+
+        const allFilteredEvents = [];
+
+        seasonMapData.forEach((location) => {
+            const marker = createMarker(location);
+            const visibleEvents = location.events.filter((event) => matchesEpisode(event, selectedEpisode));
+            const locationMatches = activeLocation === "all" || activeLocation === location.id;
+
+            if (visibleEvents.length > 0) {
+                forestMap.appendChild(marker);
+                quickLocations.appendChild(createLocationChip(location));
+            }
+
+            if (activeLocation === location.id) {
+                marker.classList.add("active");
+            }
+
+            if (visibleEvents.length > 0 && locationMatches) {
+                visibleEvents.forEach((event) => {
+                    allFilteredEvents.push({
+                        location: location.name,
+                        episode: event.episode,
+                        action: event.action
+                    });
+                });
+            }
+        });
+
+        if (allFilteredEvents.length === 0) {
+            mapSummary.textContent = "Brak wydarzeń dla wybranego filtra.";
+            const empty = document.createElement("article");
+            empty.className = "map-item";
+            empty.innerHTML = "<h4>Brak wyników</h4><p>Spróbuj wybrać inny odcinek albo kliknij inny punkt mapy.</p>";
+            mapResults.appendChild(empty);
+            return;
+        }
+
+        mapSummary.textContent = "Znaleziono " + allFilteredEvents.length + " wydarzeń. Kliknij punkt mapy, aby skupić się na jednym miejscu.";
+
+        allFilteredEvents
+            .sort((a, b) => a.episode.localeCompare(b.episode))
+            .forEach((entry) => {
+                const card = document.createElement("article");
+                card.className = "map-item";
+                card.innerHTML =
+                    "<p class=\"map-meta\"><span class=\"map-badge\">" + entry.episode + "</span><span class=\"map-badge\">" + entry.location + "</span></p>" +
+                    "<h4>Co się tutaj dzieje?</h4>" +
+                    "<p>" + entry.action + "</p>";
+                mapResults.appendChild(card);
+            });
+    }
+
+    episodeFilter.addEventListener("change", () => {
+        activeLocation = "all";
+        renderMap();
+    });
+
+    renderMap();
+</script>
 
 </body>
 </html>
