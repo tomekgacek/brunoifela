@@ -433,15 +433,24 @@
         .map-marker {
             position: absolute;
             transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             border: 2px solid #fff;
             background: var(--berry);
             box-shadow: 0 8px 16px rgba(31, 42, 42, 0.25);
             cursor: pointer;
+            display: grid;
+            place-items: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             z-index: 3;
+        }
+
+        .map-icon {
+            font-size: 0.82rem;
+            line-height: 1;
+            filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
+            pointer-events: none;
         }
 
         .map-marker:hover,
@@ -524,6 +533,10 @@
             font-weight: 700;
             cursor: pointer;
             color: #234338;
+        }
+
+        .map-chip-icon {
+            margin-right: 4px;
         }
 
         .map-chip:hover,
@@ -1113,6 +1126,7 @@
         {
             id: "school",
             name: "Leśna Szkoła pod Dębem",
+            icon: "🏫",
             x: 44,
             y: 47,
             events: [
@@ -1125,6 +1139,7 @@
         {
             id: "dzwonek",
             name: "Plac i trasa do dzwonka",
+            icon: "🏁",
             x: 28,
             y: 58,
             events: [
@@ -1134,6 +1149,7 @@
         {
             id: "polana",
             name: "Polana Odkrywców",
+            icon: "🏕️",
             x: 62,
             y: 32,
             events: [
@@ -1145,6 +1161,7 @@
         {
             id: "kałuża",
             name: "Leśna ścieżka po burzy",
+            icon: "💧",
             x: 78,
             y: 56,
             events: [
@@ -1154,6 +1171,7 @@
         {
             id: "ogrodek",
             name: "Szkolny ogródek",
+            icon: "🌿",
             x: 52,
             y: 64,
             events: [
@@ -1164,6 +1182,7 @@
         {
             id: "gniazdo",
             name: "Stare gniazdo sroki",
+            icon: "🪺",
             x: 70,
             y: 18,
             events: [
@@ -1173,6 +1192,7 @@
         {
             id: "boisko",
             name: "Leśne boisko",
+            icon: "⚽",
             x: 36,
             y: 26,
             events: [
@@ -1198,7 +1218,7 @@
         marker.type = "button";
         marker.setAttribute("data-location", location.id);
         marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
-        marker.innerHTML = "<span>" + location.name + "</span>";
+        marker.innerHTML = "<span class=\"map-icon\">" + location.icon + "</span><span>" + location.name + "</span>";
         marker.addEventListener("click", () => {
             activeLocation = location.id;
             renderMap();
@@ -1210,7 +1230,7 @@
         const chip = document.createElement("button");
         chip.className = "map-chip";
         chip.type = "button";
-        chip.textContent = location.name;
+        chip.innerHTML = "<span class=\"map-chip-icon\">" + location.icon + "</span>" + location.name;
         chip.addEventListener("click", () => {
             activeLocation = location.id;
             renderMap();
