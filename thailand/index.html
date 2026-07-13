@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tajlandia - Bangkok | Bruno i Fela</title>
+    <meta name="description" content="Interaktywna mapa Bangkok w Tajlandii. Poznaj najważniejsze świątynie, targi pływające i plan dwudniowej wycieczki dla całej rodziny.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #f9f2dd;
+            --bg-soft: #fff8eb;
+            --ink: #1f2a2a;
+            --muted: #4c5a5b;
+            --leaf: #2f8f5b;
+            --sun: #f4b740;
+            --berry: #d8584a;
+            --sky: #7cc7c2;
+            --card: rgba(255, 255, 255, 0.86);
+            --shadow: 0 20px 50px rgba(30, 51, 39, 0.15);
+            --radius: 22px;
+            --thailand-gold: #d4af37;
+            --thailand-red: #ce1126;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 8% 12%, rgba(124, 199, 194, 0.4), transparent 32%),
+                radial-gradient(circle at 92% 8%, rgba(244, 183, 64, 0.35), transparent 28%),
+                linear-gradient(180deg, var(--bg-cream) 0%, #f7eac8 45%, #f2e2bc 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .backdrop-shape {
+            position: fixed;
+            z-index: -1;
+            border-radius: 999px;
+            filter: blur(1px);
+            opacity: 0.45;
+        }
+
+        .backdrop-shape.one {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #d4af37, #f3b34c);
+            left: -110px;
+            top: 180px;
+        }
+
+        .backdrop-shape.two {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(160deg, #ce1126, #e26464);
+            right: -70px;
+            top: 380px;
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+            background: rgba(249, 242, 221, 0.8);
+            border-bottom: 1px solid rgba(31, 42, 42, 0.08);
+        }
+
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink);
+            font-family: "Baloo 2", cursive;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+
+        .brand-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--thailand-red), var(--thailand-gold));
+            color: #fff;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 18px rgba(206, 17, 38, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(212, 175, 55, 0.23);
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 24px;
+            align-items: center;
+            padding: 44px 0 26px;
+        }
+
+        .hero-copy h1 {
+            margin: 0;
+            line-height: 1.05;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(2rem, 4.8vw, 4rem);
+            font-weight: 800;
+        }
+
+        .hero-copy p {
+            margin: 16px 0 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.9vw, 1.17rem);
+            line-height: 1.7;
+            max-width: 62ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .btn {
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 800;
+            border-radius: 14px;
+            padding: 11px 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(31, 42, 42, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--thailand-red), #e26464);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--ink);
+            border: 1px solid rgba(31, 42, 42, 0.12);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-visual img:nth-child(1) {
+            transform: rotate(-3deg);
+        }
+
+        .hero-visual img:nth-child(2) {
+            transform: rotate(2deg) translateY(14px);
+        }
+
+        .hero-visual img:nth-child(3) {
+            transform: rotate(1deg);
+            grid-column: 1 / -1;
+            aspect-ratio: 16 / 8;
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            line-height: 1.1;
+        }
+
+        .section-lead {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+            font-size: 1.03rem;
+            max-width: 80ch;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-family: "Baloo 2", cursive;
+        }
+
+        .card p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.66;
+        }
+
+        .map-shell {
+            margin-top: 20px;
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .bangkok-map {
+            position: relative;
+            aspect-ratio: 1632 / 1006;
+            border-radius: 24px;
+            overflow: hidden;
+            background-image: url("../assets/pics/Tajlandia_bkk.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba(31, 42, 42, 0.15);
+            box-shadow: var(--shadow);
+        }
+
+        .bangkok-map::before,
+        .bangkok-map::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .bangkok-map::before {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            opacity: 1;
+        }
+
+        .bangkok-map::after {
+            background:
+                linear-gradient(180deg, rgba(14, 33, 28, 0.14) 0%, rgba(14, 33, 28, 0.06) 100%);
+            mix-blend-mode: normal;
+        }
+
+        .map-title {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            margin: 0;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.84);
+            font-family: "Baloo 2", cursive;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .map-marker {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: var(--thailand-gold);
+            box-shadow: 0 8px 16px rgba(31, 42, 42, 0.25);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            z-index: 3;
+        }
+
+        .map-icon {
+            font-size: 0.82rem;
+            line-height: 1;
+            filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
+            pointer-events: none;
+        }
+
+        .map-marker:hover,
+        .map-marker:focus-visible,
+        .map-marker.active {
+            transform: translate(-50%, -50%) scale(1.16);
+            box-shadow: 0 10px 18px rgba(212, 175, 55, 0.38);
+            background: #b8860b;
+            outline: none;
+        }
+
+        .map-marker span {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #224238;
+            background: rgba(255, 255, 255, 0.84);
+            padding: 3px 7px;
+            border-radius: 999px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+        }
+
+        .map-marker.label-shift-right span {
+            left: 0;
+            transform: translateX(0);
+        }
+
+        .map-panel {
+            background: var(--card);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .map-help {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .map-results {
+            margin-top: 4px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .map-item {
+            border-radius: 14px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .map-item h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-family: "Baloo 2", cursive;
+            line-height: 1.2;
+            color: var(--thailand-red);
+        }
+
+        .map-item p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .map-meta {
+            margin: 0;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .map-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(135deg, var(--thailand-red), #e26464);
+            border-radius: 999px;
+            padding: 4px 8px;
+        }
+
+        .itinerary-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 20px;
+        }
+
+        .itinerary-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .itinerary-header {
+            background: linear-gradient(135deg, var(--thailand-red), var(--thailand-gold));
+            color: #fff;
+            padding: 16px;
+            font-family: "Baloo 2", cursive;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .itinerary-content {
+            padding: 18px;
+        }
+
+        .itinerary-content h4 {
+            margin: 0 0 12px;
+            font-size: 1rem;
+            color: var(--ink);
+        }
+
+        .itinerary-item {
+            margin: 12px 0 0;
+            padding: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--thailand-gold);
+            border-radius: 8px;
+        }
+
+        .itinerary-item:first-child {
+            margin-top: 0;
+        }
+
+        .itinerary-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: var(--thailand-red);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-right: 6px;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(206, 17, 38, 0.08));
+            border-left: 4px solid var(--thailand-gold);
+            padding: 14px;
+            border-radius: 10px;
+            margin: 8px 0 0;
+        }
+
+        .fun-fact p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .fun-fact-emoji {
+            font-size: 1.2rem;
+            margin-right: 6px;
+        }
+
+        .site-footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 28px 12px 36px;
+            font-size: 0.94rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            animation: rise 0.7s ease forwards;
+        }
+
+        .reveal.delay-1 { animation-delay: 0.1s; }
+        .reveal.delay-2 { animation-delay: 0.2s; }
+        .reveal.delay-3 { animation-delay: 0.3s; }
+        .reveal.delay-4 { animation-delay: 0.4s; }
+
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 30px;
+            }
+
+            .map-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero-copy p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="backdrop-shape one" aria-hidden="true"></div>
+<div class="backdrop-shape two" aria-hidden="true"></div>
+
+<header class="site-header">
+    <div class="container header-row">
+        <a class="brand" href="../" aria-label="Wróć na stronę główną">
+            <span class="brand-badge" aria-hidden="true">🇹🇭</span>
+            <span>Tajlandia</span>
+        </a>
+        <nav class="nav" aria-label="Nawigacja strony">
+            <a href="#mapa-bangkoku">Mapa Bangkok</a>
+            <a href="#plan-wycieczki">Plan wycieczki</a>
+            <a href="../">← Powrót</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top" class="container">
+    <section class="hero">
+        <div class="hero-copy reveal">
+            <h1>Przygoda w Bangkoku! 🌴</h1>
+            <p>
+                Witaj w Bangkoku - magicznym mieście w Tajlandii! Tutaj czekają na Cię kolorowe świątynie, pływające targi
+                i niezwykłe przygody. Poznaj najciekawsze miejsca, które odwiedzi każdy podróżnik.
+            </p>
+            <p>
+                Ta interaktywna mapa pomoże Ci zaplanować niesamowitą dwudniową wycieczkę pełną odkryć i nowych doświadczeń.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#plan-wycieczki">Zobacz plan wycieczki</a>
+                <a class="btn btn-secondary" href="#mapa-bangkoku">Odkryj mapę</a>
+            </div>
+        </div>
+        <div class="hero-visual reveal delay-1">
+            <img src="../assets/pics/Tajlandia_bkk.png" alt="Bangkok - mapa miasta">
+            <img src="../assets/pics/Tajlandia_bkk.png" alt="Świątynie w Bangkoku">
+            <img src="../assets/pics/Tajlandia_bkk.png" alt="Ulice Bangkoku">
+        </div>
+    </section>
+
+    <section id="mapa-bangkoku" class="reveal delay-1">
+        <h2 class="section-title">Interaktywna Mapa Bangkok</h2>
+        <p class="section-lead">
+            Kliknij na oznaczenia na mapie, aby poznać ciekawostki o każdym miejscu.
+            Każda lokalizacja ma własną opowieść i fakty, które powinnaś poznać!
+        </p>
+
+        <div class="map-shell">
+            <div class="bangkok-map" id="bangkokMap" aria-label="Interaktywna mapa Bangkok">
+                <h3 class="map-title">🗺️ Bangkok</h3>
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+                <p class="map-help" id="mapSummary">Kliknij na punkt na mapie, aby poznać szczegóły!</p>
+                <div class="map-results" id="mapResults"></div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="plan-wycieczki" class="reveal delay-2">
+        <h2 class="section-title">Dwudniowy Plan Wycieczki</h2>
+        <p class="section-lead">
+            Idealny plan na dwa dni w Bangkoku! Odbwiedzisz najpiękniejsze świątynie, targi pływające
+            i poznasz tajlandzką kulturę. Pamiętaj: zaczynaj wcześnie, bo w południe robi się gorąco! ☀️
+        </p>
+
+        <div class="grid itinerary-grid">
+            <article class="itinerary-card">
+                <div class="itinerary-header">📅 Dzień 1: Świątynie i Pałac</div>
+                <div class="itinerary-content">
+                    <h4>Rozpoczęcie przygody!</h4>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">7:00 AM</span>
+                        <p><strong>Śniadanie w hotelu</strong> - Spróbuj tajlandzkich naleśników i świeżego mango!</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🥭</span> W Tajlandii rosną najsłodsze mango na świecie!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">8:30 AM</span>
+                        <p><strong>Wat Phra Kaew & Grand Palace</strong> - Pałac Królewski z dzwoniącymi dzwonkami i błyszczącymi złotymi kopułami!</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">👑</span> Pamiętaj: przed wejściem do świątyni trzeba zdjąć buty!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">10:30 AM</span>
+                        <p><strong>Wat Arun (Świątynia Świtu)</strong> - Wspaniale widoki na rzekę i wieże Świątyni! 🌅</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">✨</span> Nazwa pochodzi od boga świtu Arunasa - świątynia pięknie się błyszczy!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">12:30 PM</span>
+                        <p><strong>Lunch</strong> - Odpoczynek w cieniu. Spróbuj pad thai lub zupy tom yum!</p>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">3:00 PM</span>
+                        <p><strong>Wat Pho (Świątynia Leżącego Buddy)</strong> - Ogromny, leżący Budda pokryty złotem! 🙏</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🏛️</span> Budda ma 46 metrów długości - to jak cały tramwaj!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">5:00 PM</span>
+                        <p><strong>Rejs po Chao Phraya River</strong> - Podróż łódką po rzece z widokami na city! 🚤</p>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">7:00 PM</span>
+                        <p><strong>Kolacja</strong> - Wieczorny spacer po ulicach i tajlandzkie lodki!</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="itinerary-card">
+                <div class="itinerary-header">📅 Dzień 2: Targi i Przyroda</div>
+                <div class="itinerary-content">
+                    <h4>Drugi dzień magii!</h4>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">6:00 AM</span>
+                        <p><strong>Floating Markets (Targi Pływające)</strong> - Trzeba wstać wcześnie! Handlarze sprzedają z łódek!</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🛶</span> Targi pływające to tradycja licząca ponad 100 lat!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">8:30 AM</span>
+                        <p><strong>Spróbuj tajlandzkich potraw</strong> - Owoce, naleśniki bananowe, zupy - wszystko ze łódek!</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🍌</span> Tajlandia uprawia więcej odmian bananów niż każdy inny kraj!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">10:30 AM</span>
+                        <p><strong>Lumphini Park</strong> - Zielony park w centrum miasta. Szukaj krokodyli i ptaków! 🐊</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🌳</span> Park jest domem dla czarnoniebieskich smoków (iguanodontów) i wielu gatunków ptaków!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">12:30 PM</span>
+                        <p><strong>Lunch w parku</strong> - Zrelaksuj się w cieniu i przejrzyj zdjęcia z dzień 1!</p>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">2:00 PM</span>
+                        <p><strong>Muzeum lub shopping</strong> - Wybierz między muzeum lub tradycyjnymi bazarami!</p>
+                        <div class="fun-fact">
+                            <p><span class="fun-fact-emoji">🎨</span> Tajlandia słynie z pięknych pamiątek i drewnianych rzeźb!</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">5:00 PM</span>
+                        <p><strong>Wizyty w świątyniach (jeśli siły pozwalają)</strong> - Odwiedź jeszcze jedną świątynię!</p>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <span class="time-badge">7:00 PM</span>
+                        <p><strong>Pożegnalna kolacja</strong> - Ciesz się pięknym zachodem słońca nad Bangkokiem! 🌅</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="reveal delay-3">
+        <h2 class="section-title">Ciekawe Fakty o Tajlandii! 🇹🇭</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Język</h3>
+                <p>
+                    W Tajlandii mówi się po tajsku. Oto kilka przydatnych słów:
+                </p>
+                <ul style="margin: 10px 0 0; padding-left: 20px; color: var(--muted);">
+                    <li><strong>Sawasdee ka</strong> (dziewczyna) / <strong>Sawasdee krap</strong> (chłopak) = Cześć!</li>
+                    <li><strong>Khop khun ka/krap</strong> = Dziękuję!</li>
+                    <li><strong>Aroi</strong> = Pyszne!</li>
+                    <li><strong>Sanuk</strong> = Fajne / Zabawne!</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Jedzenie</h3>
+                <p>
+                    Tajlandzkie jedzenie jest słynne z kombinacji ostrych, słodkich, kwaśnych i słonych smaków.
+                </p>
+                <ul style="margin: 10px 0 0; padding-left: 20px; color: var(--muted);">
+                    <li>🌶️ <strong>Pad Thai</strong> - makaron z warzywami i jajkami</li>
+                    <li>🍜 <strong>Tom Yum</strong> - pikantna zupa z krewetkami</li>
+                    <li>🥥 <strong>Curry</strong> - łagodne lub ostre, z mleka kokosowego</li>
+                    <li>🍰 <strong>Mango Sticky Rice</strong> - słodkie mango z ryżem i mliekiem kokosowym</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Zwyczaje</h3>
+                <p>
+                    W Tajlandii ważne są dobre maniery i szacunek. Tutaj kilka rzeczy, które musisz wiedzieć:
+                </p>
+                <ul style="margin: 10px 0 0; padding-left: 20px; color: var(--muted);">
+                    <li>👑 Zawsze szanuj portret Króla - nigdy o niego nie tupniesz!</li>
+                    <li>🙏 Przed wejściem do świątyni zawsze zdejmij buty</li>
+                    <li>🤏 Nigdy nie wskazuj na kogoś palcem - używaj całej dłoni</li>
+                    <li>🙏 "Wai" to tradycyjne pozdrowienie - ręce złączone, pochylona głowa</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Ciekawostki</h3>
+                <p>
+                    Kilka dziwnych i fantastycznych faktów o Tajlandii:
+                </p>
+                <ul style="margin: 10px 0 0; padding-left: 20px; color: var(--muted);">
+                    <li>🤖 Tajlandia nigdy nie była kolonią żadnego kraju europejskiego!</li>
+                    <li>🌺 Kwiat lotosu to symbol czystości i jest wszędzie!</li>
+                    <li>🛕 Tajlandia ma więcej świątyń (wats) niż jakikolwiek inny kraj!</li>
+                    <li>🤏 Podczas pozdrawiania "wai", im wyżej dłonie, tym większy szacunek!</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    Tajlandia - Bangkok | Przygoda dla całej rodziny | Bruno i Fela World
+</footer>
+
+<script>
+    const bangkokLocations = [
+        {
+            id: "wat-phra-kaew",
+            name: "Wat Phra Kaew & Pałac Królewski",
+            icon: "👑",
+            x: 38,
+            y: 48,
+            facts: [
+                "To najważniejsza świątynia w Tajlandii i siedziba Króla!",
+                "Wewnątrz znajduje się Szmaragdowy Budda - najświętszy posąg w Tajlandii.",
+                "Pamiętaj: ZAWSZE zdejmij buty przed wejściem!",
+                "Pałac ma ponad 100 lat i jest pięknie ozdobiony złotem.",
+                "Jeśli jesteś turystą, ubierz się skromnie - ramiona i kolana powinny być zakryte!"
+            ]
+        },
+        {
+            id: "wat-arun",
+            name: "Wat Arun (Świątynia Świtu)",
+            icon: "✨",
+            x: 32,
+            y: 62,
+            facts: [
+                "Nazwa pochodzi od boga świtu Arunasa - pięknie się świeci o wschodzie słońca!",
+                "Główna wieża (prang) ma 79 metrów wysokości - prawie jak wieżowiec!",
+                "Ozdobiona jest kolorową porcelaną i sztuką.",
+                "Możesz wejść na szczyt wieży i zobaczyć całe Bangkok!",
+                "Najlepiej odwiedzić o wschodzie lub zachodzie słońca."
+            ]
+        },
+        {
+            id: "wat-pho",
+            name: "Wat Pho (Świątynia Leżącego Buddy)",
+            icon: "🙏",
+            x: 38,
+            y: 66,
+            facts: [
+                "Zawiera gigantycznego Buddę mającego 46 metrów długości!",
+                "To jeden z największych Buddów na świecie.",
+                "Posąg pokryty jest złotem i wygląda jak śpiący Budda.",
+                "Świątynia słynie z tradycyjnego tajskiego masażu.",
+                "Istnieje legenda, że dotknięcie podeszwy Buddy przynosi szczęście!"
+            ]
+        },
+        {
+            id: "floating-markets",
+            name: "Targi Pływające (Floating Markets)",
+            icon: "🛶",
+            x: 20,
+            y: 75,
+            facts: [
+                "Handlarze sprzedają bezpośrednio z łódek na rzekach!",
+                "Najstare targi pływające mają ponad 100 lat tradycji.",
+                "Owoce, warzywa, naleśniki - wszystko kupujesz z łódki do łódki.",
+                "Trzeba wstać bardzo wcześnie rano - targi zaczynają się o 6 rano!",
+                "To jeden z najbardziej kolorowych i autentycznych miejsc w Bangkoku."
+            ]
+        },
+        {
+            id: "lumphini-park",
+            name: "Park Lumphini",
+            icon: "🌳",
+            x: 55,
+            y: 50,
+            facts: [
+                "Park porośnięty zielenią w samym sercu Bangkoku!",
+                "Domem dla czarnoniebieskich smoków (iguanodontów) - mogą być 1,5 metra długie!",
+                "Jest tu także jezioro z rybami i ptakami.",
+                "Idealny do spacerów i obserwacji dzikiej przyrody.",
+                "W nocy w parku odbywają się tradycyjne walki muaythai!"
+            ]
+        },
+        {
+            id: "chao-phraya",
+            name: "Rzeka Chao Phraya",
+            icon: "🚤",
+            x: 30,
+            y: 50,
+            facts: [
+                "To najważniejsza rzeka w Tajlandii, zwana 'Rzeką Królestwa'.",
+                "Rejs łódką to najlepsza forma transportu po Bangkoku!",
+                "Wzdłuż rzeki znajduje się wiele świątyń i pałaców.",
+                "Zachód słońca nad Chao Phraya jest magiczny!",
+                "Tradycyjne drewniane łódki są zabytem żywym tradycji tajlandzkiej."
+            ]
+        },
+        {
+            id: "grand-palace",
+            name: "Grand Palace (Pałac Królewski)",
+            icon: "🏰",
+            x: 38,
+            y: 45,
+            facts: [
+                "To oficjalna rezydencja Króla Tajlandii!",
+                "Zbudowany ponad 200 lat temu z ozdobami ze złota.",
+                "Strażnicy w tradycyjnych strojach czuwają przy bramach.",
+                "Architektura łączy styl tajlandzki z europejskim.",
+                "Pamiętaj: Król jest bardzo szanowany - nigdy nie mów o nim źle!"
+            ]
+        },
+        {
+            id: "siamese-cats",
+            name: "Koty Syamese",
+            icon: "🐱",
+            x: 45,
+            y: 55,
+            facts: [
+                "Kozy syjamskie są rodzime z Tajlandii!",
+                "Te kotki są słynne z błękitnych oczu i jasnego futra.",
+                "W Tajlandii koty są świętymi zwierzętami.",
+                "Syamskie kotki mają niesamowitą osobowość - są bardzo gadatliwe!",
+                "W Bangkoku możesz odwiedzić sanktuaria dla kotów syjamskich."
+            ]
+        }
+    ];
+
+    const bangkokMap = document.getElementById("bangkokMap");
+    const mapResults = document.getElementById("mapResults");
+    const mapSummary = document.getElementById("mapSummary");
+
+    let activeLocation = "all";
+
+    function createMarker(location) {
+        const marker = document.createElement("button");
+        marker.className = "map-marker";
+        marker.style.left = location.x + "%";
+        marker.style.top = location.y + "%";
+        marker.type = "button";
+        marker.setAttribute("data-location", location.id);
+        marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
+        marker.innerHTML = "<span class=\"map-icon\">" + location.icon + "</span><span>" + location.name + "</span>";
+        marker.addEventListener("click", () => {
+            activeLocation = location.id;
+            renderMap();
+        });
+        return marker;
+    }
+
+    function renderMap() {
+        bangkokMap.querySelectorAll(".map-marker").forEach((marker) => marker.remove());
+        mapResults.innerHTML = "";
+
+        bangkokLocations.forEach((location) => {
+            const marker = createMarker(location);
+            bangkokMap.appendChild(marker);
+
+            if (activeLocation === location.id) {
+                marker.classList.add("active");
+                
+                const card = document.createElement("article");
+                card.className = "map-item";
+                let factsHtml = "<div style='margin-top: 12px;'>";
+                location.facts.forEach((fact, index) => {
+                    factsHtml += "<p style='margin: 8px 0 0; padding: 8px; background: rgba(212, 175, 55, 0.1); border-radius: 6px; border-left: 2px solid var(--thailand-gold);'>" + fact + "</p>";
+                });
+                factsHtml += "</div>";
+                
+                card.innerHTML = 
+                    "<p class=\"map-meta\"><span class=\"map-badge\">" + location.icon + " " + location.name + "</span></p>" +
+                    "<h4>Poznaj to miejsce!</h4>" +
+                    factsHtml;
+                mapResults.appendChild(card);
+                
+                mapSummary.textContent = "Kliknij inne punkty, aby poznać więcej miejsc!";
+            }
+        });
+    }
+
+    renderMap();
+</script>
+
+</body>
+</html>
