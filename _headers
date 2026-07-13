@@ -1,5 +1,5 @@
-/publisher
+/preview
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
 
-/publisher/*
+/preview/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
