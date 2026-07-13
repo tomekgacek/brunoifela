@@ -470,6 +470,11 @@
             border: 1px solid rgba(31, 42, 42, 0.12);
         }
 
+        .map-marker.label-shift-right span {
+            left: 0;
+            transform: translateX(0);
+        }
+
         .map-panel {
             background: var(--card);
             border: 1px solid rgba(31, 42, 42, 0.1);
@@ -903,7 +908,6 @@
 
         <div class="map-shell">
             <div class="forest-map" id="forestMap" aria-label="Mapa miejsc z sezonu 1">
-                <p class="map-title">Las Szumiących Liści</p>
             </div>
 
             <aside class="map-panel" aria-live="polite">
@@ -1198,6 +1202,9 @@
     function createMarker(location) {
         const marker = document.createElement("button");
         marker.className = "map-marker";
+        if (location.id === "gniazdo") {
+            marker.classList.add("label-shift-right");
+        }
         marker.style.left = location.x + "%";
         marker.style.top = location.y + "%";
         marker.type = "button";
