@@ -276,12 +276,12 @@
             margin-top: 20px;
             display: grid;
             gap: 16px;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr;
         }
 
         .bangkok-map {
             position: relative;
-            aspect-ratio: 1632 / 1006;
+            aspect-ratio: 16 / 10;
             border-radius: 24px;
             overflow: hidden;
             background-image: url("../assets/pics/Tajlandia_bkk.png");
@@ -291,6 +291,7 @@
             background-color: rgba(255, 255, 255, 0.5);
             border: 1px solid rgba(31, 42, 42, 0.15);
             box-shadow: var(--shadow);
+            min-height: 500px;
         }
 
         .bangkok-map::before,
@@ -329,8 +330,8 @@
         .map-marker {
             position: absolute;
             transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 2px solid #fff;
             background: var(--thailand-gold);
@@ -343,7 +344,7 @@
         }
 
         .map-icon {
-            font-size: 0.82rem;
+            font-size: 1rem;
             line-height: 1;
             filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
             pointer-events: none;
@@ -352,7 +353,7 @@
         .map-marker:hover,
         .map-marker:focus-visible,
         .map-marker.active {
-            transform: translate(-50%, -50%) scale(1.16);
+            transform: translate(-50%, -50%) scale(1.25);
             box-shadow: 0 10px 18px rgba(212, 175, 55, 0.38);
             background: #b8860b;
             outline: none;
@@ -360,17 +361,19 @@
 
         .map-marker span {
             position: absolute;
-            top: calc(100% + 6px);
+            top: calc(100% + 8px);
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             font-weight: 800;
             color: #224238;
-            background: rgba(255, 255, 255, 0.84);
-            padding: 3px 7px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 5px 10px;
             border-radius: 999px;
             border: 1px solid rgba(31, 42, 42, 0.12);
+            box-shadow: 0 4px 12px rgba(31, 42, 42, 0.15);
+            pointer-events: none;
         }
 
         .map-marker.label-shift-right span {
