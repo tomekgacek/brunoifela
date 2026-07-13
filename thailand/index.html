@@ -327,60 +327,6 @@
             font-weight: 700;
         }
 
-        .map-marker {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            background: var(--thailand-gold);
-            box-shadow: 0 8px 16px rgba(31, 42, 42, 0.25);
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-            z-index: 3;
-        }
-
-        .map-icon {
-            font-size: 1rem;
-            line-height: 1;
-            filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
-            pointer-events: none;
-        }
-
-        .map-marker:hover,
-        .map-marker:focus-visible,
-        .map-marker.active {
-            transform: translate(-50%, -50%) scale(1.25);
-            box-shadow: 0 10px 18px rgba(212, 175, 55, 0.38);
-            background: #b8860b;
-            outline: none;
-        }
-
-        .map-marker span {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #224238;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 5px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(31, 42, 42, 0.12);
-            box-shadow: 0 4px 12px rgba(31, 42, 42, 0.15);
-            pointer-events: none;
-        }
-
-        .map-marker.label-shift-right span {
-            left: 0;
-            transform: translateX(0);
-        }
-
         .map-panel {
             background: var(--card);
             border: 1px solid rgba(31, 42, 42, 0.1);
@@ -392,15 +338,46 @@
             align-content: start;
         }
 
-        .map-help {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.5;
+        .map-quick {
+            display: grid;
+            gap: 10px;
+        }
+
+        .map-chip {
+            border: 1px solid rgba(31, 42, 42, 0.14);
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.92);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #234338;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .map-chip:hover,
+        .map-chip:focus-visible {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--thailand-gold);
+            transform: translateX(2px);
+            outline: none;
+        }
+
+        .map-chip.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(206, 17, 38, 0.1));
+            border-color: var(--thailand-gold);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .map-chip-icon {
+            margin-right: 8px;
+            font-size: 1.1rem;
         }
 
         .map-results {
-            margin-top: 4px;
+            margin-top: 12px;
             display: grid;
             gap: 10px;
         }
@@ -633,12 +610,13 @@
         </p>
 
         <div class="map-shell">
-            <div class="bangkok-map" id="bangkokMap" aria-label="Interaktywna mapa Bangkok">
+            <div class="bangkok-map" id="bangkokMap" aria-label="Mapa Bangkok">
                 <h3 class="map-title">🗺️ Bangkok</h3>
             </div>
 
             <aside class="map-panel" aria-live="polite">
-                <p class="map-help" id="mapSummary">Kliknij na punkt na mapie, aby poznać szczegóły!</p>
+                <h3 style="margin: 0 0 12px; font-size: 1.1rem; color: var(--ink); font-family: 'Baloo 2', cursive;">Miejsca do odkrycia</h3>
+                <div class="map-quick" id="quickLocations"></div>
                 <div class="map-results" id="mapResults"></div>
             </aside>
         </div>
@@ -943,37 +921,35 @@
 
     const bangkokMap = document.getElementById("bangkokMap");
     const mapResults = document.getElementById("mapResults");
-    const mapSummary = document.getElementById("mapSummary");
+    const quickLocations = document.getElementById("quickLocations");
 
     let activeLocation = "all";
 
-    function createMarker(location) {
-        const marker = document.createElement("button");
-        marker.className = "map-marker";
-        marker.style.left = location.x + "%";
-        marker.style.top = location.y + "%";
-        marker.type = "button";
-        marker.setAttribute("data-location", location.id);
-        marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
-        marker.innerHTML = "<span class=\"map-icon\">" + location.icon + "</span><span>" + location.name + "</span>";
-        marker.addEventListener("click", () => {
+    function createLocationChip(location) {
+        const chip = document.createElement("button");
+        chip.className = "map-chip";
+        chip.type = "button";
+        chip.innerHTML = "<span class=\"map-chip-icon\">" + location.icon + "</span>" + location.name;
+        chip.addEventListener("click", () => {
             activeLocation = location.id;
-            renderMap();
+            renderLocations();
         });
-        return marker;
+        return chip;
     }
 
-    function renderMap() {
-        bangkokMap.querySelectorAll(".map-marker").forEach((marker) => marker.remove());
+    function renderLocations() {
+        quickLocations.querySelectorAll(".map-chip").forEach(chip => chip.classList.remove("active"));
         mapResults.innerHTML = "";
 
         bangkokLocations.forEach((location) => {
-            const marker = createMarker(location);
-            bangkokMap.appendChild(marker);
+            const chips = quickLocations.querySelectorAll(".map-chip");
+            chips.forEach(chip => {
+                if (chip.getAttribute("data-location") === location.id) {
+                    chip.classList.toggle("active");
+                }
+            });
 
             if (activeLocation === location.id) {
-                marker.classList.add("active");
-                
                 const card = document.createElement("article");
                 card.className = "map-item";
                 let factsHtml = "<div style='margin-top: 12px;'>";
@@ -987,13 +963,17 @@
                     "<h4>Poznaj to miejsce!</h4>" +
                     factsHtml;
                 mapResults.appendChild(card);
-                
-                mapSummary.textContent = "Kliknij inne punkty, aby poznać więcej miejsc!";
             }
         });
     }
 
-    renderMap();
+    bangkokLocations.forEach((location) => {
+        const chip = createLocationChip(location);
+        chip.setAttribute("data-location", location.id);
+        quickLocations.appendChild(chip);
+    });
+
+    renderLocations();
 </script>
 
 </body>
