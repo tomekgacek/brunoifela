@@ -558,6 +558,21 @@
             .hero-copy p {
                 font-size: 1rem;
             }
+
+            .map-shell {
+                grid-template-columns: 1fr;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .bangkok-map {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .map-panel {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -605,8 +620,8 @@
     <section id="mapa-bangkoku" class="reveal delay-1">
         <h2 class="section-title">Interaktywna Mapa Bangkok</h2>
         <p class="section-lead">
-            Kliknij na oznaczenia na mapie, aby poznać ciekawostki o każdym miejscu.
-            Każda lokalizacja ma własną opowieść i fakty, które powinnaś poznać!
+            Wybierz jedno z 8 magicznych miejsc z boku, aby poznać ciekawostki i interesujące fakty. 
+            Każde miejsce ma swoją historię i wiele do opowiedzenia!
         </p>
 
         <div class="map-shell">
@@ -938,18 +953,19 @@
     }
 
     function renderLocations() {
-        quickLocations.querySelectorAll(".map-chip").forEach(chip => chip.classList.remove("active"));
+        const allChips = document.querySelectorAll(".map-chip");
+        allChips.forEach(chip => chip.classList.remove("active"));
         mapResults.innerHTML = "";
 
         bangkokLocations.forEach((location) => {
-            const chips = quickLocations.querySelectorAll(".map-chip");
-            chips.forEach(chip => {
-                if (chip.getAttribute("data-location") === location.id) {
-                    chip.classList.toggle("active");
-                }
-            });
-
             if (activeLocation === location.id) {
+                // Podświetl aktywny chip
+                const activeChip = document.querySelector(`[data-location="${location.id}"]`);
+                if (activeChip) {
+                    activeChip.classList.add("active");
+                }
+                
+                // Pokaż informacje o lokalizacji
                 const card = document.createElement("article");
                 card.className = "map-item";
                 let factsHtml = "<div style='margin-top: 12px;'>";
@@ -973,6 +989,8 @@
         quickLocations.appendChild(chip);
     });
 
+    // Ustaw pierwszy punkt jako aktywny na starcie
+    activeLocation = bangkokLocations[0].id;
     renderLocations();
 </script>
 
