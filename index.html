@@ -379,13 +379,13 @@
 
         .forest-map {
             position: relative;
-            min-height: 440px;
+            aspect-ratio: 1632 / 1006;
             border-radius: 24px;
             overflow: hidden;
-            background:
-                radial-gradient(circle at 80% 10%, rgba(255, 245, 184, 0.65), transparent 26%),
-                radial-gradient(circle at 20% 85%, rgba(139, 199, 112, 0.3), transparent 28%),
-                linear-gradient(140deg, #cfeab4 0%, #b7d995 36%, #a7d8cb 100%);
+            background-image: url("assets/pics/mapa.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border: 1px solid rgba(31, 42, 42, 0.15);
             box-shadow: var(--shadow);
         }
@@ -399,21 +399,14 @@
         }
 
         .forest-map::before {
-            background:
-                radial-gradient(circle at 12% 22%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%),
-                radial-gradient(circle at 36% 31%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
-                radial-gradient(circle at 57% 62%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
-                radial-gradient(circle at 76% 41%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%),
-                radial-gradient(circle at 88% 79%, rgba(56, 126, 70, 0.23) 0 7%, transparent 7.2%),
-                radial-gradient(circle at 26% 75%, rgba(56, 126, 70, 0.23) 0 8%, transparent 8.2%);
-            opacity: 0.9;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            opacity: 1;
         }
 
         .forest-map::after {
             background:
-                linear-gradient(130deg, transparent 44%, rgba(233, 201, 143, 0.78) 44.5%, rgba(233, 201, 143, 0.78) 50.5%, transparent 51%),
-                linear-gradient(175deg, transparent 64%, rgba(185, 220, 233, 0.85) 64.5%, rgba(185, 220, 233, 0.85) 70%, transparent 70.5%);
-            mix-blend-mode: multiply;
+                linear-gradient(180deg, rgba(14, 33, 28, 0.14) 0%, rgba(14, 33, 28, 0.06) 100%);
+            mix-blend-mode: normal;
         }
 
         .map-title {
@@ -701,10 +694,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .forest-map {
-                min-height: 360px;
-            }
-
             .playlist-grid,
             .gallery {
                 grid-template-columns: 1fr 1fr;
@@ -727,10 +716,6 @@
             .header-row {
                 align-items: flex-start;
                 flex-direction: column;
-            }
-
-            .forest-map {
-                min-height: 320px;
             }
 
             .map-marker span {
@@ -1127,8 +1112,8 @@
             id: "school",
             name: "Leśna Szkoła pod Dębem",
             icon: "🏫",
-            x: 44,
-            y: 47,
+            x: 21,
+            y: 56,
             events: [
                 { episode: "S01E01", action: "Pierwszy dzień szkoły i poznanie klasy Pani Sowy." },
                 { episode: "S01E03", action: "Bruno i Fela budują schronienie dla Jeżyka Julka." },
@@ -1140,8 +1125,8 @@
             id: "dzwonek",
             name: "Plac i trasa do dzwonka",
             icon: "🏁",
-            x: 28,
-            y: 58,
+            x: 50,
+            y: 52,
             events: [
                 { episode: "S01E02", action: "Wyścig wokół dębu, przez mostek nad strumykiem i z powrotem na plac." }
             ]
@@ -1150,8 +1135,8 @@
             id: "polana",
             name: "Polana Odkrywców",
             icon: "🏕️",
-            x: 62,
-            y: 32,
+            x: 74,
+            y: 34,
             events: [
                 { episode: "S01E05", action: "Nocowanie pod Wielkim Dębem, ognisko i nocne odgłosy lasu." },
                 { episode: "S01E09", action: "Wielki mecz z bramkami ustawionymi na polanie." },
@@ -1162,8 +1147,8 @@
             id: "kałuża",
             name: "Leśna ścieżka po burzy",
             icon: "💧",
-            x: 78,
-            y: 56,
+            x: 83,
+            y: 67,
             events: [
                 { episode: "S01E06", action: "Największa Kałuża Świata i budowa mostu dla całej klasy." }
             ]
@@ -1172,8 +1157,8 @@
             id: "ogrodek",
             name: "Szkolny ogródek",
             icon: "🌿",
-            x: 52,
-            y: 64,
+            x: 17,
+            y: 86,
             events: [
                 { episode: "S01E01", action: "Zwiedzanie szkolnego ogródka i leśnej biblioteki." },
                 { episode: "S01E08", action: "Trop świeżego listka prowadzi do rozwiązania zagadki mapy." }
@@ -1183,7 +1168,7 @@
             id: "gniazdo",
             name: "Stare gniazdo sroki",
             icon: "🪺",
-            x: 70,
+            x: 10,
             y: 18,
             events: [
                 { episode: "S01E08", action: "W gnieździe odnaleziono zaginioną mapę wyprawy." }
@@ -1193,8 +1178,8 @@
             id: "boisko",
             name: "Leśne boisko",
             icon: "⚽",
-            x: 36,
-            y: 26,
+            x: 46,
+            y: 28,
             events: [
                 { episode: "S01E09", action: "Wspólna gra zespołowa i gol Jeżyka Julka." },
                 { episode: "S01E10", action: "Wspomnienia meczu podczas przygotowań do pikniku." }
