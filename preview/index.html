@@ -326,15 +326,15 @@
             <p class="head-note">Preview dla wydawcy</p>
         </div>
 
-        <p class="tagline"><strong>Posłuchaj 90 sekund, które przeniosą Cię do świata Bruna i Feli.</strong></p>
+        <p class="tagline"><strong>Posłuchaj fragmentów, które przeniosą Cię do świata Bruna i Feli.</strong></p>
 
         <button id="playTrailer" class="play-btn" type="button">▶ Odtwórz</button>
         <div class="progress-wrap" aria-live="polite">
             <div class="progress-meta">
-                <span>Sample 90 s</span>
-                <span id="trailerTime">1:30</span>
+                <span>Sample 2:21</span>
+                <span id="trailerTime">2:21</span>
             </div>
-            <div class="progress-track" role="progressbar" aria-label="Postęp odsłuchu sampla" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0">
+            <div class="progress-track" role="progressbar" aria-label="Postęp odsłuchu sampla" aria-valuemin="0" aria-valuemax="141" aria-valuenow="0">
                 <div id="trailerProgress" class="progress-fill"></div>
             </div>
         </div>
@@ -371,7 +371,7 @@
             <h2 class="resource-title">Materiały dla wydawcy</h2>
             <div class="resource-stack">
                 <a class="resource-link" href="../assets/wydawcy/Bruno_i_Fela_Publisher_Pitch_Deck.pdf" download>Pobierz Pitch Deck (Bruno_i_Fela_Publisher_Pitch_Deck.pdf)</a>
-                <a class="resource-link" href="../assets/wydawcy/Pobierz%20One%20Pager.pdf" download>Pobierz One Pager (Pobierz One Pager.pdf)</a>
+                <a class="resource-link" href="../assets/wydawcy/One%20Page.pdf" download>Pobierz One Pager (One Page.pdf)</a>
             </div>
             <p class="contact">Kontakt: Tomasz Gacek</p>
         </section>
@@ -442,8 +442,8 @@
         wireButton(trailerBtn, trailerAudio, "▶ Odtwórz");
         wireButton(episodeBtn, episodeAudio, "▶ Posłuchaj całego odcinka");
 
-        trailerAudio.addEventListener("timeupdate", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 90));
-        trailerAudio.addEventListener("loadedmetadata", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 90));
+        trailerAudio.addEventListener("timeupdate", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 141));
+        trailerAudio.addEventListener("loadedmetadata", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 141));
         episodeAudio.addEventListener("timeupdate", () => updateProgress(episodeAudio, episodeProgress, episodeTime, episodeTrack));
         episodeAudio.addEventListener("loadedmetadata", () => updateProgress(episodeAudio, episodeProgress, episodeTime, episodeTrack));
 
@@ -451,7 +451,7 @@
         trailerAudio.addEventListener("ended", () => {
             trailerProgress.style.width = "100%";
             trailerTime.textContent = "0:00";
-            trailerTrack.setAttribute("aria-valuenow", "90");
+            trailerTrack.setAttribute("aria-valuenow", "141");
         });
 
         episodeAudio.addEventListener("ended", () => {
