@@ -367,6 +367,23 @@
 
         <hr class="section-break">
 
+        <section id="introSection" class="full-episode">
+            <h2 class="full-title">Posłuchaj intro</h2>
+            <button id="playIntro" class="play-btn full-btn" type="button">▶ Posłuchaj intro</button>
+            <div class="progress-wrap secondary" aria-live="polite">
+                <div class="progress-meta">
+                    <span>Intro</span>
+                    <span id="introTime">0:00</span>
+                </div>
+                <div id="introTrack" class="progress-track" role="progressbar" aria-label="Postęp odtwarzania intro" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+                    <div id="introProgress" class="progress-fill"></div>
+                </div>
+            </div>
+            <audio id="introAudio" class="audio" preload="none" src="../assets/wydawcy/Bruno%20i%20Fela%20intro.mp4"></audio>
+        </section>
+
+        <hr class="section-break">
+
         <section class="resources" aria-label="Materiały PDF dla wydawcy">
             <h2 class="resource-title">Materiały dla wydawcy</h2>
             <div class="resource-stack">
@@ -388,6 +405,11 @@
         const episodeProgress = document.getElementById("episodeProgress");
         const episodeTime = document.getElementById("episodeTime");
         const episodeTrack = document.getElementById("episodeTrack");
+        const introBtn = document.getElementById("playIntro");
+        const introAudio = document.getElementById("introAudio");
+        const introProgress = document.getElementById("introProgress");
+        const introTime = document.getElementById("introTime");
+        const introTrack = document.getElementById("introTrack");
         const nextStep = document.getElementById("nextStep");
         const goEpisode = document.getElementById("goEpisode");
         const fullEpisode = document.getElementById("fullEpisode");
@@ -415,11 +437,12 @@
             nextStep.setAttribute("aria-hidden", "false");
         }
 
+        const allAudio = () => [trailerAudio, episodeAudio, introAudio];
+
         function wireButton(button, audio, label) {
             button.addEventListener("click", () => {
                 if (audio.paused) {
-                    episodeAudio.pause();
-                    trailerAudio.pause();
+                    allAudio().forEach(a => { if (a !== audio) a.pause(); });
                     audio.play();
                     button.textContent = "⏸ Wstrzymaj";
                 } else {
@@ -441,6 +464,15 @@
 
         wireButton(trailerBtn, trailerAudio, "▶ Odtwórz");
         wireButton(episodeBtn, episodeAudio, "▶ Posłuchaj całego odcinka");
+        wireButton(introBtn, introAudio, "▶ Posłuchaj intro");
+
+        introAudio.addEventListener("timeupdate", () => updateProgress(introAudio, introProgress, introTime, introTrack));
+        introAudio.addEventListener("loadedmetadata", () => updateProgress(introAudio, introProgress, introTime, introTrack));
+        introAudio.addEventListener("ended", () => {
+            introProgress.style.width = "100%";
+            introTime.textContent = "0:00";
+            introTrack.setAttribute("aria-valuenow", introTrack.getAttribute("aria-valuemax") || "0");
+        });
 
         trailerAudio.addEventListener("timeupdate", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 141));
         trailerAudio.addEventListener("loadedmetadata", () => updateProgress(trailerAudio, trailerProgress, trailerTime, trailerTrack, 141));
