@@ -448,12 +448,19 @@
             aspect-ratio: 1632 / 1006;
             border-radius: 24px;
             overflow: hidden;
-            background-image: url("assets/pics/mapa.jpeg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             border: 1px solid rgba(31, 42, 42, 0.15);
             box-shadow: var(--shadow);
+        }
+
+        .forest-map.season-1 {
+            background-image: url("assets/pics/mapa.jpeg");
+        }
+
+        .forest-map.season-2 {
+            background-image: url("assets/pics/mapa s02.png");
         }
 
         .forest-map::before,
@@ -838,7 +845,13 @@
                     <a href="#sluchowiska-sezon-2">Sezon 2</a>
                 </div>
             </details>
-            <a href="#mapa-sezonu">Mapa sezonu</a>
+            <details class="nav-dropdown">
+                <summary>Mapy</summary>
+                <div class="nav-dropdown-menu">
+                    <a href="#mapa-sezonu">Sezon 1</a>
+                    <a href="#mapa-sezonu-2">Sezon 2</a>
+                </div>
+            </details>
             <a href="#piosenki">Piosenki</a>
             <a href="#bohaterowie">Bohaterowie</a>
             <a href="#kolorowanki">Kolorowanki</a>
@@ -1096,7 +1109,7 @@
         </p>
 
         <div class="map-shell">
-            <div class="forest-map" id="forestMap" aria-label="Mapa miejsc z sezonu 1">
+            <div class="forest-map season-1" id="forestMap" aria-label="Mapa miejsc z sezonu 1">
             </div>
 
             <aside class="map-panel" aria-live="polite">
@@ -1121,6 +1134,43 @@
 
                 <div class="map-quick" id="quickLocations"></div>
                 <div class="map-results" id="mapResults"></div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="mapa-sezonu-2" class="reveal delay-2">
+        <h2 class="section-title">Mapa przygód - Sezon 2</h2>
+        <p class="section-lead">
+            Interaktywna mapa nowego sezonu prowadzi przez wakacyjne wyprawy Bruna i Feli.
+            Kliknij punkt mapy albo wybierz odcinek, aby zobaczyć najważniejsze wydarzenia i miejsca przygód.
+        </p>
+
+        <div class="map-shell">
+            <div class="forest-map season-2" id="forestMapS2" aria-label="Mapa miejsc z sezonu 2">
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+                <div class="map-controls">
+                    <label for="episodeFilterS2">Wybierz odcinek</label>
+                    <select id="episodeFilterS2">
+                        <option value="all">Wszystkie odcinki</option>
+                        <option value="S02E01">S02E01</option>
+                        <option value="S02E02">S02E02</option>
+                        <option value="S02E03">S02E03</option>
+                        <option value="S02E04">S02E04</option>
+                        <option value="S02E05">S02E05</option>
+                        <option value="S02E06">S02E06</option>
+                        <option value="S02E07">S02E07</option>
+                        <option value="S02E08">S02E08</option>
+                        <option value="S02E09">S02E09</option>
+                        <option value="S02E10">S02E10</option>
+                    </select>
+                </div>
+
+                <p class="map-help" id="mapSummaryS2">Wybierz punkt mapy albo odcinek, aby zawęzić wyniki.</p>
+
+                <div class="map-quick" id="quickLocationsS2"></div>
+                <div class="map-results" id="mapResultsS2"></div>
             </aside>
         </div>
     </section>
@@ -1300,7 +1350,7 @@
 </footer>
 
 <script>
-    const seasonMapData = [
+    const season1MapData = [
         {
             id: "school",
             name: "Leśna Szkoła pod Dębem",
@@ -1363,6 +1413,7 @@
             icon: "🪺",
             x: 10,
             y: 18,
+            labelShiftRight: true,
             events: [
                 { episode: "S01E08", action: "W gnieździe odnaleziono zaginioną mapę wyprawy." }
             ]
@@ -1380,137 +1431,280 @@
         }
     ];
 
-    const forestMap = document.getElementById("forestMap");
-    const mapResults = document.getElementById("mapResults");
-    const mapSummary = document.getElementById("mapSummary");
-    const episodeFilter = document.getElementById("episodeFilter");
-    const quickLocations = document.getElementById("quickLocations");
-    const navDropdown = document.querySelector(".nav-dropdown");
-    const navDropdownSummary = navDropdown ? navDropdown.querySelector("summary") : null;
-    const navDropdownLinks = navDropdown ? navDropdown.querySelectorAll(".nav-dropdown-menu a") : [];
-
-    let activeLocation = "all";
-
-    function createMarker(location) {
-        const marker = document.createElement("button");
-        marker.className = "map-marker";
-        if (location.id === "gniazdo") {
-            marker.classList.add("label-shift-right");
+    const season2MapData = [
+        {
+            id: "lista-przygod",
+            name: "Wielki Dąb i Lista Przygód",
+            icon: "🌳",
+            x: 26,
+            y: 60,
+            events: [
+                { episode: "S02E01", action: "Początek wakacji i stworzenie Listy Wakacyjnych Przygód." }
+            ]
+        },
+        {
+            id: "siedem-kamieni",
+            name: "Siedem Kamieni przy Strumyku",
+            icon: "🪨",
+            x: 57,
+            y: 58,
+            events: [
+                { episode: "S02E02", action: "Pierwsza zagadka mapy i trop przy szumiącej wodzie." }
+            ]
+        },
+        {
+            id: "wodospad",
+            name: "Wodospad Siedmiu Kropel",
+            icon: "💦",
+            x: 79,
+            y: 31,
+            events: [
+                { episode: "S02E03", action: "Poszukiwanie ukrytej wiadomości i lekcja cierpliwości." }
+            ]
+        },
+        {
+            id: "zakole-tratwy",
+            name: "Zakole Strumyka i Tratwa",
+            icon: "🛶",
+            x: 64,
+            y: 74,
+            events: [
+                { episode: "S02E04", action: "Wyprawa tratwą i odkrycie buteleczki z kolejną wskazówką." }
+            ]
+        },
+        {
+            id: "polana-ciszy",
+            name: "Polana Cichych Znaków",
+            icon: "🤫",
+            x: 40,
+            y: 44,
+            events: [
+                { episode: "S02E05", action: "Dzień Bez Słów i współpraca oparta na gestach." }
+            ]
+        },
+        {
+            id: "polana-piknikowa",
+            name: "Polana Piknikowa",
+            icon: "🧺",
+            x: 18,
+            y: 74,
+            events: [
+                { episode: "S02E06", action: "Leśny piknik i tajemnica zaginionego koszyka z kanapkami." }
+            ]
+        },
+        {
+            id: "stary-wiatrak",
+            name: "Stary Wiatrak",
+            icon: "🕰️",
+            x: 14,
+            y: 24,
+            labelShiftRight: true,
+            events: [
+                { episode: "S02E07", action: "Wyprawa do wiatraka i odkrycie sekretu dzięki pomocy innym." }
+            ]
+        },
+        {
+            id: "jaskinia-echo",
+            name: "Jaskinia Echo",
+            icon: "🕳️",
+            x: 83,
+            y: 53,
+            events: [
+                { episode: "S02E08", action: "Kolejny fragment mapy i zagadka wymagająca uważnego słuchania." }
+            ]
+        },
+        {
+            id: "klub-odkrywcow",
+            name: "Przystań Klubu Odkrywców",
+            icon: "🧭",
+            x: 47,
+            y: 18,
+            events: [
+                { episode: "S02E09", action: "Połączenie fragmentów mapy i założenie Klubu Odkrywców." },
+                { episode: "S02E10", action: "Finał wyprawy i odkrycie, czym naprawdę jest największy skarb wakacji." }
+            ]
         }
-        marker.style.left = location.x + "%";
-        marker.style.top = location.y + "%";
-        marker.type = "button";
-        marker.setAttribute("data-location", location.id);
-        marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
-        marker.innerHTML = "<span class=\"map-icon\">" + location.icon + "</span><span>" + location.name + "</span>";
-        marker.addEventListener("click", () => {
-            activeLocation = location.id;
-            renderMap();
-        });
-        return marker;
-    }
+    ];
 
-    function createLocationChip(location) {
-        const chip = document.createElement("button");
-        chip.className = "map-chip";
-        chip.type = "button";
-        chip.innerHTML = "<span class=\"map-chip-icon\">" + location.icon + "</span>" + location.name;
-        chip.addEventListener("click", () => {
-            activeLocation = location.id;
-            renderMap();
-        });
-        return chip;
-    }
+    function initInteractiveMap(config) {
+        const forestMap = document.getElementById(config.forestMapId);
+        const mapResults = document.getElementById(config.mapResultsId);
+        const mapSummary = document.getElementById(config.mapSummaryId);
+        const episodeFilter = document.getElementById(config.episodeFilterId);
+        const quickLocations = document.getElementById(config.quickLocationsId);
 
-    function matchesEpisode(event, selectedEpisode) {
-        return selectedEpisode === "all" || event.episode === selectedEpisode;
-    }
-
-    function renderMap() {
-        const selectedEpisode = episodeFilter.value;
-
-        forestMap.querySelectorAll(".map-marker").forEach((marker) => marker.remove());
-        quickLocations.innerHTML = "";
-        mapResults.innerHTML = "";
-
-        const allFilteredEvents = [];
-
-        seasonMapData.forEach((location) => {
-            const marker = createMarker(location);
-            const visibleEvents = location.events.filter((event) => matchesEpisode(event, selectedEpisode));
-            const locationMatches = activeLocation === "all" || activeLocation === location.id;
-
-            if (visibleEvents.length > 0) {
-                forestMap.appendChild(marker);
-                quickLocations.appendChild(createLocationChip(location));
-            }
-
-            if (activeLocation === location.id) {
-                marker.classList.add("active");
-            }
-
-            if (visibleEvents.length > 0 && locationMatches) {
-                visibleEvents.forEach((event) => {
-                    allFilteredEvents.push({
-                        location: location.name,
-                        episode: event.episode,
-                        action: event.action
-                    });
-                });
-            }
-        });
-
-        if (allFilteredEvents.length === 0) {
-            mapSummary.textContent = "Brak wydarzeń dla wybranego filtra.";
-            const empty = document.createElement("article");
-            empty.className = "map-item";
-            empty.innerHTML = "<h4>Brak wyników</h4><p>Spróbuj wybrać inny odcinek albo kliknij inny punkt mapy.</p>";
-            mapResults.appendChild(empty);
+        if (!forestMap || !mapResults || !mapSummary || !episodeFilter || !quickLocations) {
             return;
         }
 
-        mapSummary.textContent = "Znaleziono " + allFilteredEvents.length + " wydarzeń. Kliknij punkt mapy, aby skupić się na jednym miejscu.";
+        let activeLocation = "all";
 
-        allFilteredEvents
-            .sort((a, b) => a.episode.localeCompare(b.episode))
-            .forEach((entry) => {
-                const card = document.createElement("article");
-                card.className = "map-item";
-                card.innerHTML =
-                    "<p class=\"map-meta\"><span class=\"map-badge\">" + entry.episode + "</span><span class=\"map-badge\">" + entry.location + "</span></p>" +
-                    "<h4>Co się tutaj dzieje?</h4>" +
-                    "<p>" + entry.action + "</p>";
-                mapResults.appendChild(card);
+        function matchesEpisode(event, selectedEpisode) {
+            return selectedEpisode === "all" || event.episode === selectedEpisode;
+        }
+
+        function createMarker(location) {
+            const marker = document.createElement("button");
+            marker.className = "map-marker";
+            if (location.labelShiftRight) {
+                marker.classList.add("label-shift-right");
+            }
+            marker.style.left = location.x + "%";
+            marker.style.top = location.y + "%";
+            marker.type = "button";
+            marker.setAttribute("data-location", location.id);
+            marker.setAttribute("aria-label", "Pokaż miejsce: " + location.name);
+            marker.innerHTML = "<span class=\"map-icon\">" + location.icon + "</span><span>" + location.name + "</span>";
+            marker.addEventListener("click", () => {
+                activeLocation = location.id;
+                renderMap();
             });
+            return marker;
+        }
+
+        function createLocationChip(location) {
+            const chip = document.createElement("button");
+            chip.className = "map-chip";
+            chip.type = "button";
+            chip.innerHTML = "<span class=\"map-chip-icon\">" + location.icon + "</span>" + location.name;
+            chip.addEventListener("click", () => {
+                activeLocation = location.id;
+                renderMap();
+            });
+            return chip;
+        }
+
+        function renderMap() {
+            const selectedEpisode = episodeFilter.value;
+
+            forestMap.querySelectorAll(".map-marker").forEach((marker) => marker.remove());
+            quickLocations.innerHTML = "";
+            mapResults.innerHTML = "";
+
+            const allFilteredEvents = [];
+
+            config.data.forEach((location) => {
+                const marker = createMarker(location);
+                const visibleEvents = location.events.filter((event) => matchesEpisode(event, selectedEpisode));
+                const locationMatches = activeLocation === "all" || activeLocation === location.id;
+
+                if (visibleEvents.length > 0) {
+                    forestMap.appendChild(marker);
+                    quickLocations.appendChild(createLocationChip(location));
+                }
+
+                if (activeLocation === location.id) {
+                    marker.classList.add("active");
+                }
+
+                if (visibleEvents.length > 0 && locationMatches) {
+                    visibleEvents.forEach((event) => {
+                        allFilteredEvents.push({
+                            location: location.name,
+                            episode: event.episode,
+                            action: event.action
+                        });
+                    });
+                }
+            });
+
+            if (allFilteredEvents.length === 0) {
+                mapSummary.textContent = "Brak wydarzeń dla wybranego filtra.";
+                const empty = document.createElement("article");
+                empty.className = "map-item";
+                empty.innerHTML = "<h4>Brak wyników</h4><p>Spróbuj wybrać inny odcinek albo kliknij inny punkt mapy.</p>";
+                mapResults.appendChild(empty);
+                return;
+            }
+
+            mapSummary.textContent = "Znaleziono " + allFilteredEvents.length + " wydarzeń. Kliknij punkt mapy, aby skupić się na jednym miejscu.";
+
+            allFilteredEvents
+                .sort((a, b) => a.episode.localeCompare(b.episode))
+                .forEach((entry) => {
+                    const card = document.createElement("article");
+                    card.className = "map-item";
+                    card.innerHTML =
+                        "<p class=\"map-meta\"><span class=\"map-badge\">" + entry.episode + "</span><span class=\"map-badge\">" + entry.location + "</span></p>" +
+                        "<h4>Co się tutaj dzieje?</h4>" +
+                        "<p>" + entry.action + "</p>";
+                    mapResults.appendChild(card);
+                });
+        }
+
+        episodeFilter.addEventListener("change", () => {
+            activeLocation = "all";
+            renderMap();
+        });
+
+        renderMap();
     }
 
-    episodeFilter.addEventListener("change", () => {
-        activeLocation = "all";
-        renderMap();
-    });
+    const navDropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
 
-    if (navDropdown && navDropdownSummary) {
+    if (navDropdowns.length > 0) {
+        navDropdowns.forEach((dropdown) => {
+            dropdown.addEventListener("toggle", () => {
+                if (!dropdown.open) {
+                    return;
+                }
+                navDropdowns.forEach((otherDropdown) => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.open = false;
+                    }
+                });
+            });
+
+            dropdown.querySelectorAll(".nav-dropdown-menu a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    dropdown.open = false;
+                });
+            });
+        });
+
         document.addEventListener("click", (event) => {
-            if (navDropdown.open && !navDropdown.contains(event.target)) {
-                navDropdown.open = false;
-            }
+            navDropdowns.forEach((dropdown) => {
+                if (dropdown.open && !dropdown.contains(event.target)) {
+                    dropdown.open = false;
+                }
+            });
         });
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && navDropdown.open) {
-                navDropdown.open = false;
-                navDropdownSummary.focus();
+            if (event.key !== "Escape") {
+                return;
             }
-        });
 
-        navDropdownLinks.forEach((link) => {
-            link.addEventListener("click", () => {
-                navDropdown.open = false;
-            });
+            const openDropdown = navDropdowns.find((dropdown) => dropdown.open);
+            if (!openDropdown) {
+                return;
+            }
+
+            openDropdown.open = false;
+            const summary = openDropdown.querySelector("summary");
+            if (summary) {
+                summary.focus();
+            }
         });
     }
 
-    renderMap();
+    initInteractiveMap({
+        forestMapId: "forestMap",
+        mapResultsId: "mapResults",
+        mapSummaryId: "mapSummary",
+        episodeFilterId: "episodeFilter",
+        quickLocationsId: "quickLocations",
+        data: season1MapData
+    });
+
+    initInteractiveMap({
+        forestMapId: "forestMapS2",
+        mapResultsId: "mapResultsS2",
+        mapSummaryId: "mapSummaryS2",
+        episodeFilterId: "episodeFilterS2",
+        quickLocationsId: "quickLocationsS2",
+        data: season2MapData
+    });
 </script>
 
 </body>
