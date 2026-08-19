@@ -343,11 +343,17 @@
             line-height: 1.6;
         }
 
-        .spotify-link {
+        .platform-links {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .platform-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 14px;
             text-decoration: none;
             border: 1px solid rgba(31, 42, 42, 0.12);
             border-radius: 14px;
@@ -356,12 +362,12 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .spotify-link:hover {
+        .platform-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(31, 42, 42, 0.15);
         }
 
-        .spotify-link img {
+        .platform-link img {
             display: block;
             max-height: 40px;
             width: auto;
@@ -940,7 +946,6 @@
             </p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://www.youtube.com/@BrunoiFela/playlists" target="_blank" rel="noopener noreferrer">Przejdź do playlist</a>
-                <a class="btn btn-secondary" href="#kolorowanki">Pobierz kolorowanki</a>
             </div>
         </div>
         <div class="hero-visual reveal delay-1">
@@ -959,13 +964,18 @@
     <section class="availability reveal delay-1" aria-label="Dostępność Bruno i Fela">
         <div class="availability-grid">
             <article>
-                <h2>Bruno i Fela dostępne na Spotify</h2>
+                <h2>Bruno i Fela dostępne na Spotify i YouTube</h2>
                 <p>
-                    Posłuchaj słuchowisk Bruno i Fela na Spotify.
+                    Słuchaj i oglądaj Bruno i Fela na ulubionej platformie.
                 </p>
-                <a class="spotify-link" href="https://open.spotify.com/show/1WQ1pwKDz9UGFtUFvLhrj3" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Bruno i Fela na Spotify">
-                    <img src="assets/logos/spotify.png" alt="Spotify - Bruno i Fela">
-                </a>
+                <div class="platform-links" aria-label="Platformy: Spotify i YouTube">
+                    <a class="platform-link" href="https://open.spotify.com/show/1WQ1pwKDz9UGFtUFvLhrj3" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Bruno i Fela na Spotify">
+                        <img src="assets/logos/spotify.png" alt="Spotify - Bruno i Fela">
+                    </a>
+                    <a class="platform-link" href="https://www.youtube.com/@BrunoiFela/playlists" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Bruno i Fela na YouTube">
+                        <img src="assets/logos/youtube-logo.png" alt="YouTube - Bruno i Fela">
+                    </a>
+                </div>
             </article>
             <article>
                 <h2>Aplikacja mobilna wkrótce</h2>
