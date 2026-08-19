@@ -314,6 +314,73 @@
             max-width: 80ch;
         }
 
+        .availability {
+            margin-top: 4px;
+            background: var(--card);
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 22px;
+        }
+
+        .availability-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .availability h2 {
+            margin: 0;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(1.5rem, 2.9vw, 2.1rem);
+            line-height: 1.15;
+        }
+
+        .availability p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .spotify-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px;
+            text-decoration: none;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: 14px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.84);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .spotify-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(31, 42, 42, 0.15);
+        }
+
+        .spotify-link img {
+            display: block;
+            max-height: 40px;
+            width: auto;
+        }
+
+        .mobile-badges {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .mobile-badges img {
+            display: block;
+            height: 42px;
+            width: auto;
+            border-radius: 9px;
+        }
+
         .grid {
             display: grid;
             gap: 16px;
@@ -785,6 +852,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .availability-grid {
+                grid-template-columns: 1fr;
+            }
+
             .character-grid {
                 grid-template-columns: 1fr;
             }
@@ -882,6 +953,30 @@
             <video autoplay loop muted playsinline preload="metadata" poster="assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno i Fela wspólnie tańczą">
                 <source src="assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
             </video>
+        </div>
+    </section>
+
+    <section class="availability reveal delay-1" aria-label="Dostępność Bruno i Fela">
+        <div class="availability-grid">
+            <article>
+                <h2>Bruno i Fela dostępne na Spotify</h2>
+                <p>
+                    Posłuchaj słuchowisk Bruno i Fela na Spotify.
+                </p>
+                <a class="spotify-link" href="https://open.spotify.com/show/1WQ1pwKDz9UGFtUFvLhrj3" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Bruno i Fela na Spotify">
+                    <img src="assets/logos/spotify.png" alt="Spotify - Bruno i Fela">
+                </a>
+            </article>
+            <article>
+                <h2>Aplikacja mobilna wkrótce</h2>
+                <p>
+                    Pracujemy nad aplikacją mobilną. Wkrótce będzie dostępna w App Store i Google Play.
+                </p>
+                <div class="mobile-badges" aria-label="Wkrótce dostępne w sklepach mobilnych">
+                    <img src="assets/logos/app-store-badge.png" alt="Dostępne w App Store - wkrótce">
+                    <img src="assets/logos/google-play-badge.png" alt="Dostępne w Google Play - wkrótce">
+                </div>
+            </article>
         </div>
     </section>
 
