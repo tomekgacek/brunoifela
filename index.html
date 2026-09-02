@@ -482,6 +482,41 @@
             transform: translateY(-1px);
         }
 
+        .episode-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .episode-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .episode-link:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        .episode-link.youtube {
+            background: rgba(255, 77, 77, 0.12);
+            color: #b81d1d;
+        }
+
+        .episode-link.spotify {
+            background: rgba(28, 185, 84, 0.12);
+            color: #0f7a42;
+        }
+
         .gallery {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
@@ -1035,6 +1070,10 @@
                 <span class="episode-code">S01E01</span>
                 <p class="episode-title">Pierwszy dzień w Leśnej Szkole</p>
                 <p>Bruno i Fela rozpoczynają naukę w Leśnej Szkole pod Wielkim Dębem. W pierwszym odcinku poznają nowych przyjaciół, nauczycielkę Panią Sowę i przekonują się, że pierwszy dzień szkoły wcale nie musi być straszny.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=a_uwRIT-CIc&list=PLRZpIqDCRXC0&index=2" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/1UgJcmMFWfDE9L1nRTzhXz" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1042,12 +1081,20 @@
                 <p class="episode-title">Wielki Wyścig do Dzwonka</p>
                 <p>Fela jest przekonana, że jest najszybszą wiewiórką w całym Lesie Szumiących Liści. Kiedy w Leśnej Szkole zostaje ogłoszony Wielki Wyścig do Dzwonka, postanawia wszystkim to udowodnić. Czy pewność siebie wystarczy do zwycięstwa?</p>
                 <p>Zabawna i ciepła bajka dla dzieci o przyjaźni, pokorze i wierze we własne możliwości.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=JvaN64XcHhg&list=PLRZpIqDCRXC0&index=3" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/2Qmc4LkFW3f7boFIpyHNnc?si=1teGYOq-Qg6CtMf0xZRolg" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
                 <span class="episode-code">S01E03</span>
                 <p class="episode-title">Domek dla Jeżyka Julka</p>
                 <p>W Leśnej Szkole uczniowie otrzymują wyjątkowe zadanie - mają zbudować domek dla Jeżyka Julka. Bruno chce wszystko dokładnie zaplanować, a Fela woli od razu działać. Czy uda im się współpracować i stworzyć najlepszy domek w całym lesie?</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=VCGypitlMZg&list=PLRZpIqDCRXC0&index=4" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/2O1z8b7eK3g9biayDp5SEX?si=msJ9_YQcS8u_DAzlLETn1w" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1055,6 +1102,10 @@
                 <p class="episode-title">Pierwsza klasówka z szyszek</p>
                 <p>W Leśnej Szkole zbliża się pierwsza wielka klasówka z rozpoznawania szyszek. Bruno jest spokojny - od dawna zna wszystkie gatunki drzew. Fela natomiast odkrywa, że im bardziej próbuje wszystko zapamiętać, tym bardziej wszystko jej się miesza.</p>
                 <p>Na szczęście prawdziwy przyjaciel wie, że najlepsza nauka to taka, która sprawia radość. Ciepła, pełna humoru opowieść o tym, że proszenie o pomoc nie jest oznaką słabości, a wspólna nauka potrafi zamienić największy stres w świetną zabawę.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=InoItMh6zNI&list=PLRZpIqDCRXC0&index=5" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/5UrpJcAbb3uP4S4uPoF3x2?si=Cl9CGSBYRkGmM5WkBQI4ww" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1062,6 +1113,10 @@
                 <p class="episode-title">Nocowanie pod Wielkim Dębem</p>
                 <p>W Leśnej Szkole nadchodzi najbardziej wyczekiwany wieczór w całym semestrze - wspólne nocowanie pod Wielkim Dębem. W ciągu dnia wszyscy są odważni i podekscytowani, ale gdy zapada zmrok, las zaczyna wydawać zupełnie inne dźwięki.</p>
                 <p>Czy Fela i Bruno odkryją, że strach czasem podpowiada nam rzeczy, których wcale nie ma? Ciepła i zabawna opowieść o tym, że odwaga nie oznacza braku strachu, lecz działanie mimo niego.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=WPW6JCpQw5w&list=PLRZpIqDCRXC0&index=6" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6c4Pl1eMiPHuoxMiyRWdhc?si=Wd-vWEg8RUya_VbYwLD6Ng" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1069,6 +1124,10 @@
                 <p class="episode-title">Największy Skoczek Leśnej Szkoły</p>
                 <p>Po nocnym deszczu na leśnej ścieżce pojawia się ogromna kałuża. Niektórzy twierdzą, że nie da się jej przeskoczyć. To wystarczy, żeby wszyscy zaczęli wymyślać coraz zabawniejsze sposoby na zdobycie tytułu „Największego Skoczka Leśnej Szkoły”.</p>
                 <p>Bruno przygotowuje dokładny plan, a Fela jest przekonana, że wystarczy dobry rozpęd. Czy naprawdę warto ryzykować tylko po to, żeby zaimponować innym?</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=2BmLkr401VM&list=PLRZpIqDCRXC0&index=7" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/32k8EsJp0WIhwtWyXxLa7i?si=eD1h6XPzRx-SUX8stY7nVA" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1076,6 +1135,10 @@
                 <p class="episode-title">Dzień Zamiany Talentów</p>
                 <p>W Leśnej Szkole nauczyciel ogłasza wyjątkowe wyzwanie - przez cały dzień każdy ma spróbować zachowywać się jak ktoś zupełnie inny. Bruno postanawia być spontaniczny jak Fela, a Fela chce być uporządkowana jak Bruno.</p>
                 <p>Szybko okazuje się, że bycie kimś innym wcale nie jest takie proste. Pełna humoru opowieść o tym, że każdy ma własne talenty, a prawdziwa przyjaźń polega na docenianiu różnic.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=7JKhG-1IsRA&list=PLRZpIqDCRXC0&index=8&t=6s" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6bzlbx3TPmiS5GqxTSlR2l?si=3mS4dhSVTACxMgzLuKharw" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1083,6 +1146,10 @@
                 <p class="episode-title">Zaginiona mapa wyprawy</p>
                 <p>W Leśnej Szkole przygotowania do Wielkiej Wyprawy zostają niespodziewanie przerwane. Znika jedyna mapa prowadząca do Leśnej Polany Odkrywców. Fela jest przekonana, że znajdzie ją w kilka minut, a Bruno chce dokładnie przeanalizować wszystkie tropy.</p>
                 <p>Dopiero gdy połączą swoje siły, odkryją, że najlepszy detektyw to nie ten, który wszystko robi sam, ale ten, który potrafi współpracować.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=A57smIDT3rU&list=PLRZpIqDCRXC0&index=9&t=1s" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/02xCSBJHKX3ilTjULNHGSC?si=eAr62VeJSnOL0EipkE-WeQ" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1090,6 +1157,10 @@
                 <p class="episode-title">Wielki Mecz Lasu</p>
                 <p>W Leśnej Szkole wszyscy czekają na coroczny Wielki Mecz Lasu. Fela marzy o strzeleniu zwycięskiego gola, a Bruno przygotowuje dokładną taktykę. Jednak kiedy mecz się rozpoczyna, szybko okazuje się, że samo zdobywanie bramek nie wystarczy.</p>
                 <p>Największym sukcesem jest współpraca całej drużyny i dobra zabawa.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=xhvO0Qy_GSE&list=PLRZpIqDCRXC0&index=10" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/37QTHic1WVslERYyCicjFi?si=Sc5wr8ltQhm8NQPp-C86Ow" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1097,6 +1168,10 @@
                 <p class="episode-title">Wielki Piknik Leśnej Szkoły</p>
                 <p>Nadszedł dzień Wielkiego Pikniku Leśnej Szkoły - najbardziej wyczekiwanego wydarzenia całego roku. Na leśnej polanie spotykają się wszyscy uczniowie, rodziny i przyjaciele. Bruno i Fela pomagają przygotować piknik, wspominając wszystkie przygody, które przeżyli od pierwszego dnia szkoły.</p>
                 <p>Kiedy niespodziewanie nad polanę nadciąga silny wiatr, okazuje się, że dzięki przyjaźni i współpracy nawet największe zamieszanie może zakończyć się wspaniałą zabawą.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=qM8aJ8XJZpE&list=PLRZpIqDCRXC0&index=11&t=2s" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/4whN35uB9Up5BDXMNwYldR?si=KkhKIDqIS6q_hRt6XisWvQ" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
         </div>
 
@@ -1140,6 +1215,10 @@
                 <p class="episode-title">Wakacje się zaczynają</p>
                 <p>Rozpoczynają się wakacje w Lesie Szumiących Liści. Bruno i Fela żegnają Leśną Szkołę i tworzą swoją Listę Wakacyjnych Przygód. Czy uda im się przeżyć najlepsze lato w życiu?</p>
                 <p>Pełna humoru i ciepła opowieść o przyjaźni, marzeniach i pierwszych wakacyjnych przygodach.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=njaUCBgfGmY&list=PLOuoRGjM2N5Q&index=1&t=7s" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/2SdhtyO3n8JLWzhq1kS9gi?si=DT8wMUhoRQmRz-ba7PsHrA" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1147,6 +1226,10 @@
                 <p class="episode-title">Tajemnicza Mapa Odkrywców</p>
                 <p>Bruno i Fela odnajdują stary, tajemniczy fragment mapy z zagadkową wskazówką. Wyruszają na pierwszą wakacyjną wyprawę, nie wiedząc jeszcze, że to dopiero początek największej przygody w Lesie Szumiących Liści.</p>
                 <p>Zabawna i pełna tajemnic bajka o ciekawości, wytrwałości i odkrywaniu świata.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=hB35yjOeV0k&list=PLOuoRGjM2N5Q&index=2" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6cakVAHwfhiC4gKCeBwRNz?si=itF0ATulSe2-JGA0AEoOJg" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1154,6 +1237,10 @@
                 <p class="episode-title">Wodospad Siedmiu Kropel</p>
                 <p>Bruno i Fela podążają za kolejną wskazówką tajemniczej mapy, która prowadzi ich do niezwykłego Wodospadu Siedmiu Kropel. Czy uda im się odnaleźć ukrytą wiadomość? A może tym razem największym wyzwaniem okaże się... cierpliwość?</p>
                 <p>Pełna humoru i przygód bajka dla dzieci o uważności, wytrwałości i odkrywaniu niezwykłych tajemnic Lasu Szumiących Liści.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=tJEGP-Le0FQ&list=PLOuoRGjM2N5Q&index=3" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/7kjNjEs6ow5NmFGIXpqKrL?si=7mIausUGTF6FIG5grw07EQ" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1161,6 +1248,10 @@
                 <p class="episode-title">Wielka Wyprawa Tratwą</p>
                 <p>Bruno i Fela budują własną tratwę i wyruszają w niezwykły rejs po leśnym strumyku. Gdy ich wyprawa niespodziewanie się zatrzymuje, odkrywają tajemniczą buteleczkę z kolejną wskazówką prowadzącą do sekretu starej mapy.</p>
                 <p>Pełna humoru i przygód bajka dla dzieci o odwadze, współpracy i przekonaniu, że nawet nieoczekiwane przeszkody mogą prowadzić do czegoś dobrego.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=qhYuvtEaoQs&list=PLOuoRGjM2N5Q&index=4" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6f7nxcuJMvlfvWveSUMxr5?si=drkCwa07QO25YRS6EbbVrQ" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1168,6 +1259,10 @@
                 <p class="episode-title">Dzień Bez Słów</p>
                 <p>Bruno i Fela podejmują niezwykłe wyzwanie - próbują porozumiewać się bez wypowiadania ani jednego słowa. Czy uda im się rozwiązać kolejną zagadkę tajemniczej mapy, wykorzystując tylko gesty, uważność i współpracę?</p>
                 <p>Pełna humoru i ciepła bajka dla dzieci o przyjaźni, komunikacji i przekonaniu, że czasem można powiedzieć najwięcej... nie mówiąc nic.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=vpLStyiBTBk&list=PLOuoRGjM2N5Q&index=5" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/1nV5OzjvMKmyDePv3VlDsl?si=2Herlv32SPiZHqU7-H3Asw" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1175,6 +1270,10 @@
                 <p class="episode-title">Leśny Piknik</p>
                 <p>Bruno i Fela organizują wielki piknik dla swoich przyjaciół z Lasu Szumiących Liści. Gdy tajemniczo znika koszyk z kanapkami, bohaterowie odkrywają, że czasem dzielenie się z innymi przynosi najpiękniejsze niespodzianki... i kolejną wskazówkę do sekretnej mapy.</p>
                 <p>Pełna humoru i ciepła bajka dla dzieci o życzliwości, dzieleniu się i odkrywaniu, że dobro zawsze wraca.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=t7aeGwi9_xA&list=PLOuoRGjM2N5Q&index=6" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/3q6XEyiiOmlTEXMreaxhQb?si=HYYCK-hAS6eVf96uTDwNSw" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1182,6 +1281,10 @@
                 <p class="episode-title">Stary Wiatrak</p>
                 <p>Bruno i Fela podążają za kolejną wskazówką tajemniczej mapy i trafiają do starego wiatraka skrywającego niezwykły sekret. Podczas wyprawy przekonują się, że pomaganie innym może otworzyć drzwi do kolejnej wielkiej przygody.</p>
                 <p>Pełna humoru i tajemnic bajka dla dzieci o życzliwości, odwadze i odkrywaniu niezwykłych miejsc w Lesie Szumiących Liści.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=qscmnq86lBg&list=PLOuoRGjM2N5Q&index=7&t=16s" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/7qAd27QPif9E7mb0xBZKKA?si=Vnn3lyKjTJyXDYAi7VOzpQ" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1189,6 +1292,10 @@
                 <p class="episode-title">Jaskinia Echo</p>
                 <p>Bruno i Fela podążają za kolejną wskazówką tajemniczej mapy i trafiają do niezwykłej Jaskini Echo. W jej ciemnych zakamarkach czeka na nich kolejny fragment mapy oraz zagadka, która zmusi ich do uważnego słuchania.</p>
                 <p>Pełna tajemnic i humoru bajka dla dzieci o odwadze, uważności i odkrywaniu, że coś, co początkowo wydaje się straszne, może skrywać coś pięknego.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=bneJci1iaqM&list=PLOuoRGjM2N5Q&index=8" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6HXI60F4c2c2mjTaf2luS1?si=hDu9vD5wQsuH2F1YK4wu-Q" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1196,6 +1303,10 @@
                 <p class="episode-title">Klub Odkrywców</p>
                 <p>Wakacje powoli dobiegają końca, ale przed Brunem i Felą jeszcze jedna wielka przygoda. Po połączeniu wszystkich fragmentów tajemniczej mapy bohaterowie odkrywają miejsce ukryte na jej końcu. Postanawiają również założyć własny Klub Odkrywców Lasu Szumiących Liści.</p>
                 <p>Ciepła i zabawna bajka o przyjaźni, współpracy, pomaganiu innym i wspólnym odkrywaniu świata.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=lqBMfu4O7o8&list=PLOuoRGjM2N5Q&index=9" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/3uHw6HKPpNZRGacgUcSkYd?si=N8o72lPAQ5-1twY0MyBniA" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
 
             <article class="episode">
@@ -1203,6 +1314,10 @@
                 <p class="episode-title">Największy Skarb Wakacji</p>
                 <p>Bruno, Fela i przyjaciele docierają do miejsca wskazanego na tajemniczej mapie. W ukrytej skrzyni znajdują coś zupełnie innego, niż się spodziewali. Czy prawdziwy skarb musi być ze złota?</p>
                 <p>Wzruszające i pełne humoru zakończenie drugiego sezonu o przyjaźni, wspólnych wspomnieniach i odkrywaniu, że najcenniejsze skarby często mamy tuż obok siebie.</p>
+                <div class="episode-links">
+                    <a class="episode-link youtube" href="https://www.youtube.com/watch?v=u2kkPbReJE8&list=PLOuoRGjM2N5Q&index=10" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+                    <a class="episode-link spotify" href="https://open.spotify.com/episode/6iR17XtgvZoknuwa2Edor9?si=gYKpkNb2TOa85glhMiouqg" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
+                </div>
             </article>
         </div>
     </section>
