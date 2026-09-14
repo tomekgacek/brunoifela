@@ -571,6 +571,10 @@
             background-image: url("assets/pics/mapa s02.png");
         }
 
+        .forest-map.season-3 {
+            background-image: url("assets/pics/mapa_s03.png");
+        }
+
         .forest-map::before,
         .forest-map::after {
             content: "";
@@ -963,6 +967,7 @@
                 <div class="nav-dropdown-menu">
                     <a href="#mapa-sezonu">Sezon 1</a>
                     <a href="#mapa-sezonu-2">Sezon 2</a>
+                    <a href="#mapa-sezonu-3">Sezon 3</a>
                 </div>
             </details>
             <a href="#piosenki">Piosenki</a>
@@ -1061,7 +1066,7 @@
             <article class="episode">
                 <span class="episode-code">S03E01</span>
                 <p class="episode-title">Pierwszy Jesienny Liść</p>
-                <p>Bruno i Fela wracają po wakacjach do Leśnej Szkoły. Pewnego dnia znajdują niezwykły jesienny liść z tajemniczym symbolem. Czy to początek kolejnej przygady Klubu Odkrywców?</p>
+                <p>Bruno i Fela wracają po wakacjach do Leśnej Szkoły. Pewnego dnia znajdują niezwykły jesienny liść z tajemniczym symbolem. Czy to początek kolejnej przygody Klubu Odkrywców?</p>
                 <div class="episode-links">
                     <a class="episode-link youtube" href="https://youtu.be/YRfzf9A1s9k" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
                     <a class="episode-link spotify" href="https://open.spotify.com/episode/07pmqWFIrJAxfyPtgpc0Ba?si=tJqUKyblR0aAbdDPlPt0Yg" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
@@ -1157,19 +1162,6 @@
                     <a class="episode-link spotify" href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">🎵 Spotify</a>
                 </div>
             </article>
-        </div>
-    </section>
-
-    <section id="mapa-sezonu-3" class="reveal delay-2">
-        <h2 class="section-title">Mapa przygód - Sezon 3</h2>
-        <p class="section-lead">
-            Jesienne tajemnice Lasu Szumiących Liści prowadzą Bruna i Felę przez ślady, jaskinie,
-            piknik, skrzynkę pod dębem i wielkie odkrycie ich własnej historii. Kliknij poniższą mapę,
-            aby przejrzeć klimat i miejsca sezonu 3.
-        </p>
-
-        <div class="map-shell">
-            <img src="assets/pics/mapa_s03.png" alt="Mapa przygód sezonu 3 Bruno i Fela" style="width:100%; border-radius:22px; box-shadow:0 20px 50px rgba(30, 51, 39, 0.15); display:block;">
         </div>
     </section>
 
@@ -1539,6 +1531,43 @@
 
                 <div class="map-quick" id="quickLocationsS2"></div>
                 <div class="map-results" id="mapResultsS2"></div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="mapa-sezonu-3" class="reveal delay-2">
+        <h2 class="section-title">Mapa przygód - Sezon 3</h2>
+        <p class="section-lead">
+            Interaktywna mapa sezonu 3 pokazuje, jak jesienne tropy, światła, listy i tajemnice prowadzą Bruna i Felę przez Las Szumiących Liści.
+            Kliknij punkt mapy albo wybierz odcinek, aby zobaczyć najważniejsze wydarzenia z każdej wyprawy.
+        </p>
+
+        <div class="map-shell">
+            <div class="forest-map season-3" id="forestMapS3" aria-label="Mapa miejsc z sezonu 3">
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+                <div class="map-controls">
+                    <label for="episodeFilterS3">Wybierz odcinek</label>
+                    <select id="episodeFilterS3">
+                        <option value="all">Wszystkie odcinki</option>
+                        <option value="S03E01">S03E01</option>
+                        <option value="S03E02">S03E02</option>
+                        <option value="S03E03">S03E03</option>
+                        <option value="S03E04">S03E04</option>
+                        <option value="S03E05">S03E05</option>
+                        <option value="S03E06">S03E06</option>
+                        <option value="S03E07">S03E07</option>
+                        <option value="S03E08">S03E08</option>
+                        <option value="S03E09">S03E09</option>
+                        <option value="S03E10">S03E10</option>
+                    </select>
+                </div>
+
+                <p class="map-help" id="mapSummaryS3">Wybierz punkt mapy albo odcinek, aby zawęzić wyniki.</p>
+
+                <div class="map-quick" id="quickLocationsS3"></div>
+                <div class="map-results" id="mapResultsS3"></div>
             </aside>
         </div>
     </section>
@@ -1918,6 +1947,109 @@
         }
     ];
 
+    const season3MapData = [
+        {
+            id: "s03e01",
+            name: "1. Leśna Szkoła i liść z symbolem",
+            icon: "1️⃣",
+            x: 20,
+            y: 24,
+            events: [
+                { episode: "S03E01", action: "Bruno i Fela odnajdują pierwszy tajemniczy jesienny liść i rozpoczynają nowy sezon przygód." }
+            ]
+        },
+        {
+            id: "s03e02",
+            name: "2. Ślady po deszczu",
+            icon: "2️⃣",
+            x: 34,
+            y: 37,
+            events: [
+                { episode: "S03E02", action: "Po nocnym deszczu w lesie pojawiają się tajemnicze ślady, które prowadzą bohaterów w głąb nieznanego szlaku." }
+            ]
+        },
+        {
+            id: "s03e03",
+            name: "3. Polana Liści",
+            icon: "3️⃣",
+            x: 58,
+            y: 28,
+            events: [
+                { episode: "S03E03", action: "Na polanie odbywa się kolorowy wyścig liści, który prowadzi do nowych tropów i wspólnej zabawy." }
+            ]
+        },
+        {
+            id: "s03e04",
+            name: "4. Domek Julka",
+            icon: "4️⃣",
+            x: 70,
+            y: 42,
+            events: [
+                { episode: "S03E04", action: "Domek Julka znika w tajemniczych okolicznościach i rozpoczyna się poszukiwanie zagubionej małej kryjówki." }
+            ]
+        },
+        {
+            id: "s03e05",
+            name: "5. Jaskinia Echo",
+            icon: "5️⃣",
+            x: 82,
+            y: 27,
+            events: [
+                { episode: "S03E05", action: "Świetliki prowadzą do Jaskini Echo, gdzie przyjaciele odkrywają niespodziewaną, magiczną zagadkę." }
+            ]
+        },
+        {
+            id: "s03e06",
+            name: "6. Wielki piknik",
+            icon: "6️⃣",
+            x: 46,
+            y: 59,
+            events: [
+                { episode: "S03E06", action: "Klub Odkrywców przygotowuje jesienny piknik, który niespodziewanie zamienia się w wielkie wyzwanie z deszczem i wspólną pracą." }
+            ]
+        },
+        {
+            id: "s03e07",
+            name: "7. Wiatr i list",
+            icon: "7️⃣",
+            x: 85,
+            y: 62,
+            events: [
+                { episode: "S03E07", action: "Jesienny wiatr przynosi tajemniczy list, który prowadzi bohaterów do dawnych legend i sekretów leśnych odkrywców." }
+            ]
+        },
+        {
+            id: "s03e08",
+            name: "8. Wielki Dąb",
+            icon: "8️⃣",
+            x: 30,
+            y: 77,
+            events: [
+                { episode: "S03E08", action: "Pod korzeniami wielkiego dębu odkrywana jest starodawna skrzynka z niezwykłymi listami dla kolejnych pokoleń." }
+            ]
+        },
+        {
+            id: "s03e09",
+            name: "9. Wielka tajemnica",
+            icon: "9️⃣",
+            x: 58,
+            y: 84,
+            events: [
+                { episode: "S03E09", action: "Po połączeniu wszystkich tropów przyjaciele odkrywają prawdziwy sens jesiennej zagadki i najważniejsze miejsce tajemnicy." }
+            ]
+        },
+        {
+            id: "s03e10",
+            name: "10. Księga Odkrywców",
+            icon: "🔟",
+            x: 76,
+            y: 88,
+            events: [
+                { episode: "S03E10", action: "Sezon kończy się zapisaniem pierwszej wspólnej historii w Księdze Odkrywców, a pierwszy płatek śniegu zapowiada kolejną tajemnicę." }
+            ]
+        }
+    ];
+
     function initInteractiveMap(config) {
         const forestMap = document.getElementById(config.forestMapId);
         const mapResults = document.getElementById(config.mapResultsId);
@@ -2096,6 +2228,15 @@
         episodeFilterId: "episodeFilterS2",
         quickLocationsId: "quickLocationsS2",
         data: season2MapData
+    });
+
+    initInteractiveMap({
+        forestMapId: "forestMapS3",
+        mapResultsId: "mapResultsS3",
+        mapSummaryId: "mapSummaryS3",
+        episodeFilterId: "episodeFilterS3",
+        quickLocationsId: "quickLocationsS3",
+        data: season3MapData
     });
 </script>
 
