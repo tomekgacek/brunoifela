@@ -4,111 +4,225 @@
 
 Krótki opis: Kiedy zapada jesienny wieczór, Bruno i Fela zauważają tajemnicze światełka prowadzące do Jaskini Echo. Czeka tam na nich niezwykły widok i kolejna zagadka.
 
-[Narrator]:
-Jesienią dzień kończył się coraz wcześniej.
-Kiedy Bruno i Fela wychodzili ze szkoły, słońce było już nisko.
-Las robił się cichy.
-Kolorowe liście szumiały pod łapami.
+[Narrator]: Jesienią dzień kończył się coraz wcześniej. Kiedy Bruno i Fela wychodzili ze szkoły, słońce było już nisko nad drzewami. Las robił się cichy, a kolorowe liście szumiały pod łapami.
 
 [Fela]: Trochę tu ciemno.
 
 [Bruno]: Jesień.
-
 [Fela]: Wiem.
 
 [Bruno]: Tylko mówię.
 
 [Fela]: A ja tylko narzekam.
 
-[Narrator]:
-Nagle Fela się zatrzymała.
+[Narrator]: Nagle Fela zatrzymała się tak gwałtownie, że Bruno prawie na nią wpadł.
 
 [Fela]: Bruno.
-
 [Bruno]: Co?
 
 [Fela]: Tam coś świeci.
 
-[Narrator]:
-Między drzewami pojawiło się małe światełko.
-Potem drugie.
-Trzecie.
-Czwarte.
+[Narrator]: Bruno spojrzał między drzewa. Początkowo nie zobaczył niczego. Po chwili pojawiło się małe, zielonkawe światełko. Zgasło. Kilka metrów dalej pojawiło się następne. Potem jeszcze jedno.
 
 [Fela]: Świetliki!
-
 [Bruno]: Jesienią?
 
-[Fela]: Może to nie są zwykłe świetliki.
+[Fela]: Może nie są zwykłymi świetlikami.
 
-[Bruno]: A jakie?
+[Bruno]: A jakimi?
 
-[Fela]: Tajemnicze.
+[Fela]: Tajemniczymi.
 
-[Narrator]:
-Światełka przesuwały się między drzewami.
-Bruno i Fela ruszyli za nimi.
-Prowadziły coraz dalej.
-Aż dotarli do miejsca, które dobrze znali.
-Jaskini Echo.
+[Narrator]: Światełka zaczęły przesuwać się między drzewami. Raz pojawiały się wysoko, raz tuż nad ziemią. Wyglądało to tak, jakby ktoś zapalał maleńkie lampki i zaraz je gasił.
+
+[Fela]: Bruno, one gdzieś lecą.
+
+[Bruno]: Widzę.
+
+[Fela]: Chodźmy za nimi.
+
+[Bruno]: Tylko nie zgubmy ścieżki.
+
+[Narrator]: Ruszyli ostrożnie. Światełka pojawiały się coraz dalej, aż doprowadziły ich na znajomą polanę. Na jej końcu, pomiędzy starymi skałami, znajdowało się wejście do Jaskini Echo.
 
 [Fela]: Pamiętasz?
-
 [Bruno]: Oczywiście.
 
-[Narrator]:
-Weszli do środka.
-Było ciemno.
-Bardzo ciemno.
-Nagle jedno światełko.
-Drugie.
-Dziesiąte.
-Setne.
-Cała ściana zaczęła błyszczeć.
+[Fela]: Myślisz, że to przypadek?
+
+[Bruno]: W przypadku naszej księgi coraz mniej wierzę w przypadki.
+
+[Narrator]: Świetliki zniknęły w ciemnym wejściu do jaskini.
+
+[Fela]: No to chyba mamy odpowiedź.
+
+[Bruno]: Albo kolejną zagadkę.
+
+[Narrator]: Weszli do środka. Na początku widzieli tylko ciemność. Ich kroki odbijały się od skalnych ścian.
+
+[Fela]: Halo?
+
+[Narrator]: Echo odpowiedziało cichym, przeciągłym głosem.
+
+[Fela]: Nadal działa.
+
+[Bruno]: Jaskinia chyba się nie przeprowadziła.
+
+[Narrator]: Fela zachichotała. Wtedy nad ich głowami zamigotało jedno światełko. Potem drugie. Trzecie. Kolejne pojawiły się na ścianach.
+
+[Fela]: Bruno...
+[Bruno]: Widzę.
+
+[Narrator]: Z każdą chwilą światełek było więcej. Wkrótce cała komora wyglądała jak nocne niebo. Maleńkie punkciki odbijały się w mokrych skałach i tańczyły na ścianach.
 
 [Fela]: Wow...
 
-[Narrator]:
-Bruno nic nie odpowiedział.
-Po prostu patrzył.
-Wtedy Fela zauważyła coś na kamieniu.
-Mały napis:
-„Nie wszystko, co świeci, pokazuje drogę.”
+[Narrator]: Bruno przez chwilę nic nie mówił. Nagle jedno ze światełek poleciało dalej, w głąb jaskini.
 
-[Fela]: Czyli... świetliki nas nie prowadziły?
+[Fela]: Chodź!
 
-[Bruno]: Może nie.
+[Bruno]: Fela, poczekaj!
 
-[Fela]: To po co tu przyszliśmy?
+[Narrator]: Fela zatrzymała się dopiero przy wąskim przejściu między skałami.
 
-[Bruno]: Może po to, żeby zobaczyć.
+[Fela]: Zobacz. One tam lecą.
 
-[Fela]: Co?
+[Bruno]: To chyba nie jest główna sala.
 
-[Bruno]: Że czasami nie trzeba nigdzie iść.
-Wystarczy się zatrzymać.
+[Fela]: Czyli tym bardziej musimy sprawdzić.
 
-[Narrator]:
-Fela usiadła.
-Przez chwilę oboje milczeli.
-Potem Fela uśmiechnęła się.
+[Narrator]: Przecisnęli się przez szczelinę. Za nią znajdowała się mała komora, której wcześniej nie zauważyli. Świetliki unosiły się pod sklepieniem, a ich światło oświetlało trzy kamienne półki.
 
-[Fela]: To trochę przypomina naszą pierwszą wizytę tutaj.
+[Fela]: Co to jest?
 
-[Bruno]: Wtedy myśleliśmy, że jaskinia jest straszna.
+[Narrator]: Na pierwszej półce leżał okrągły, gładki kamień. Na drugiej znajdowało się kilka małych kryształków. Trzecia była pusta. Nad nimi wyryto trzy symbole: księżyc, gwiazdę i liść.
 
-[Fela]: A była piękna.
+[Bruno]: To wygląda jak zagadka.
 
-[Bruno]: Bo spojrzeliśmy uważniej.
+[Fela]: Wiedziałam!
 
-[Narrator]:
-Fela popatrzyła na świetliki.
+[Narrator]: Bruno podszedł bliżej. Jeden ze świetlików usiadł na kamieniu. Jego światło padło na ścianę. Na skale pojawił się jasny punkt.
 
-[Fela]: Może właśnie to jest jesienna zagadka.
-Nie wszystko trzeba rozwiązać.
-Czasami trzeba coś zauważyć.
+[Fela]: Patrz!
 
-Bruno uśmiechnął się.
+[Narrator]: Bruno przesunął kamień. Światło zmieniło położenie. Kiedy ustawił go pod odpowiednim kątem, jasny punkt znalazł się dokładnie na wyrytym symbolu księżyca.
+
+[Bruno]: Chyba trzeba skierować światło na właściwy znak.
+
+[Fela]: Ale który?
+
+[Narrator]: Fela przyjrzała się trzem symbolom. Potem spojrzała na świetliki.
+
+[Fela]: One nie świecą wszystkie naraz.
+
+[Bruno]: Masz rację.
+
+[Fela]: Najpierw jeden. Potem dwa. Potem trzy.
+
+[Narrator]: Przez chwilę obserwowali ich ruch. Światełka zapalały się kolejno: nad księżycem, nad gwiazdą i nad liściem.
+
+[Fela]: Może to kolejność.
+
+[Bruno]: Księżyc, gwiazda, liść?
+
+[Fela]: Spróbujmy.
+
+[Narrator]: Bruno ostrożnie przesunął kamień. Potem kryształek. Światło odbiło się od jego powierzchni i padło na pierwszy symbol. Kiedy skierowali je na gwiazdę, w głębi jaskini rozległo się ciche kliknięcie.
+
+[Fela]: Słyszałeś?
+[Bruno]: Tak.
+
+[Narrator]: Oboje zamarli. Z ciemności dobiegł delikatny szelest. Kilka kamyków stoczyło się ze skalnej półki.
+
+[Fela]: Może lepiej już nie ruszajmy.
+
+[Bruno]: Zgadzam się.
+
+[Narrator]: Wtedy wszystkie świetliki nagle zgasły.
+
+[Fela]: Bruno?
+[Bruno]: Jestem.
+
+[Fela]: Nic nie widzę.
+
+[Bruno]: Ja też nie.
+
+[Narrator]: W ciemności usłyszeli kolejne echo. Tym razem nie przypominało ich głosów. Było krótkie i głuche, jakby gdzieś daleko zamknęły się kamienne drzwi.
+
+[Fela]: To było tutaj?
+
+[Bruno]: Chyba tak.
+
+[Narrator]: Bruno wyciągnął łapę przed siebie. Nagle jeden świetlik zapalił się tuż przy jego nosie.
+
+[Bruno]: Aaa!
+
+[Fela]: Ha! Wystraszyłeś się!
+
+[Bruno]: Wcale nie.
+
+[Fela]: Oczywiście.
+
+[Narrator]: Świetlik odleciał w bok. Za nim pojawiły się kolejne. Oświetliły wąską ścieżkę prowadzącą do dalszej części komory.
+
+[Fela]: Chyba jeszcze nie skończyliśmy.
+
+[Narrator]: Poszli za światłem. Ścieżka kończyła się przy małym skalnym zagłębieniu. W środku znajdowała się kamienna tabliczka.
+
+[Fela]: Jest napis.
+
+[Narrator]: Fela przetarła powierzchnię łapą. Litery stały się wyraźniejsze.
+
+[Fela]: „Nie wszystko, co świeci, pokazuje drogę.”
+
+[Narrator]: Przez chwilę oboje milczeli.
+
+[Fela]: Czyli świetliki wcale nie prowadziły nas do skarbu.
+
+[Bruno]: Może prowadziły nas tutaj.
+
+[Fela]: Żeby znaleźć napis?
+
+[Bruno]: Albo żebyśmy sami coś zauważyli.
+
+[Narrator]: Fela spojrzała na ściany. Dopiero teraz dostrzegła, że światło świetlików nie oświetlało przypadkowych miejsc. Każde odbicie tworzyło fragment większego wzoru.
+
+[Fela]: Bruno! Popatrz!
+
+[Narrator]: Światełka ustawiły się tak, że na ścianie pojawił się kształt przypominający mapę. Nie była to jednak mapa jaskini. Widać było drzewa, polanę i coś, co wyglądało jak mała księga.
+
+[Bruno]: To...
+[Fela]: Księga.
+
+[Narrator]: Wzór zadrżał. Jeden ze świetlików poleciał w stronę wyjścia.
+
+[Fela]: Poczekaj!
+
+[Narrator]: Fela pobiegła za nim, ale po kilku krokach światło zniknęło.
+
+[Fela]: Zgubiłam go.
+
+[Bruno]: Nie. Popatrz na ziemię.
+
+[Narrator]: Na mokrym piasku ciągnęła się cienka, świecąca smuga. Prowadziła z powrotem do głównej komory.
+
+[Fela]: One naprawdę chcą, żebyśmy wyszli.
+
+[Bruno]: Chyba na dzisiaj wystarczy zagadek.
+
+[Narrator]: Ruszyli w stronę wyjścia. Kiedy mijali pierwszą komorę, świetliki znów rozświetliły sklepienie. Tym razem nie prowadziły ich nigdzie. Po prostu unosiły się nad nimi, jak maleńkie gwiazdy.
+
+[Fela]: Wiesz co?
+
+[Bruno]: Co?
+
+[Fela]: Chyba właśnie zrozumiałam ten napis.
+
+[Bruno]: Mów.
+
+[Fela]: Nie każde światło mówi: „idź tędy”. Czasami mówi: „zatrzymaj się i popatrz”.
+
+[Narrator]: Bruno uśmiechnął się.
 
 [Bruno]: To bardzo dobre.
 
@@ -116,31 +230,42 @@ Bruno uśmiechnął się.
 
 [Bruno]: Już zapisuję.
 
-[Narrator]:
-Wtedy nad wejściem do jaskini pojawił się cień.
-Bruno spojrzał w górę.
-Sójka.
-Stała na skalnej półce.
-Patrzyła na nich.
-Potem odleciała.
+[Narrator]: Kiedy wyszli z jaskini, nad lasem pojawił się pierwszy jasny księżyc. Świetliki zostały jeszcze przez chwilę przy wejściu, a potem zaczęły znikać jeden po drugim.
 
-Fela podeszła do wejścia.
+[Fela]: Myślisz, że to już koniec?
+
+[Bruno]: Tej przygody?
+
+[Fela]: Tak.
+
+[Bruno]: Chyba tak.
+
+[Narrator]: Wtedy nad wejściem do jaskini pojawił się cień. Bruno spojrzał w górę.
+
+[Narrator]: Na skalnej półce siedziała Sójka. Patrzyła na nich przez chwilę. Potem przechyliła głowę, jakby chciała sprawdzić, co znaleźli.
 
 [Fela]: Ona znowu tu była.
 
 [Bruno]: Tak.
 
-[Fela]: Bruno...
+[Narrator]: Sójka rozłożyła skrzydła i odleciała w stronę ciemnego lasu.
 
+[Fela]: Bruno...
 [Bruno]: Tak?
 
 [Fela]: Myślisz, że ona wie, dokąd prowadzi ta księga?
 
-Bruno spojrzał na ciemny las.
+[Narrator]: Bruno spojrzał w kierunku, w którym zniknęła Sójka. Potem wyjął z kieszeni mały notes.
 
 [Bruno]: Coraz bardziej tak.
+
+[Narrator]: Fela popatrzyła jeszcze raz na wejście do jaskini. W jej głębi zamigotało ostatnie światełko.
+
+[Fela]: A my chyba właśnie znaleźliśmy kolejną wskazówkę.
+
+[Narrator]: Ostatni świetlik zgasł. Las znów pogrążył się w ciemności, ale tym razem nie wydawała się już taka straszna.
 
 [Muzyka]
 
 Koniec piątego odcinka.
-"Noc Świetlików".
+„Noc Świetlików”.
