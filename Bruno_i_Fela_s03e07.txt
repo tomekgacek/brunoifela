@@ -4,114 +4,124 @@
 
 Krótki opis: Silny jesienny wiatr przynosi Brunowi i Feli tajemniczy list. Jego treść prowadzi ich do historii dawnych Odkrywców. Czy właśnie odkryli coś, co zmieni ich własną historię?
 
-[Narrator]:
-Następnego dnia wiatr był wyjątkowo silny.
-Liście wirowały po całym lesie.
-Fela próbowała złapać jeden.
-Nie udało się.
-Drugi też nie.
-Trzeci wylądował jej prosto na nosie.
+# BRUNO I FELА
+## Sezon 3 – Odcinek 7
+## List, który przyniósł wiatr
 
-[Fela]: Mam!
+[Narrator]: Następnego dnia wiatr był wyjątkowo silny. Od samego rana hulał między drzewami, szarpał gałęziami i porywał z ziemi kolorowe liście. Czerwone, żółte i pomarańczowe płatki wirowały nad leśną ścieżką, przelatywały nad krzakami i znikały za pniami drzew. Fela uznała, że to doskonała okazja do zabawy. Biegała od jednego drzewa do drugiego, próbując złapać jak najwięcej liści, zanim dotkną ziemi. Pierwszy przemknął jej tuż nad głową. Drugiego wiatr porwał sprzed samego nosa. Trzeci zakręcił w powietrzu, zrobił małe kółko i przykleił się Feli prosto do policzka.
 
-[Narrator]:
-Ale kiedy zdjęła liść z nosa, zauważyła coś pod nim.
-Mały kawałek papieru.
+[Fela]: Mam! Złapałam go! A właściwie to on złapał mnie!
 
-[Fela]: Bruno!
+[Narrator]: Fela zachichotała i odkleiła liść od twarzy. Wtedy zauważyła coś dziwnego. Pod liściem, przyczepiony do jego ogonka, znajdował się mały kawałek papieru. Był złożony na pół, a na brzegu miał niewielką, brązową plamkę przypominającą ślad po kropli deszczu. Fela rozejrzała się dookoła. Nieopodal, pod rozłożystą leszczyną, Bruno zbierał szyszki, które wiatr rozsypał po ścieżce.
 
-[Narrator]:
-Bruno podszedł.
-Na papierze znajdowało się jedno zdanie:
-„Jeżeli znaleźliście księgę, znajdźcie jej pierwszą historię.”
+[Fela]: Bruno! Chodź szybko! Wiatr przyniósł mi wiadomość!
 
-Bruno długo patrzył na kartkę.
+[Narrator]: Bruno podbiegł do Feli i ostrożnie rozłożył papier. Kartka była stara, lekko pożółkła i zapisana starannym pismem. Widniało na niej tylko jedno zdanie: „Jeżeli znaleźliście księgę, znajdźcie jej pierwszą historię”.
 
-[Bruno]: Pierwszą historię...
+Bruno przeczytał wiadomość jeszcze raz, a potem zmarszczył czoło. Przez chwilę przyglądał się kartce, jakby spodziewał się, że pojawią się na niej kolejne słowa.
 
-[Fela]: Czyli?
+[Fela]: Pierwsza historia? Przecież księga ma mnóstwo stron! Jak mamy wiedzieć, o którą chodzi?
 
-[Bruno]: Musimy przeczytać księgę od początku.
+[Narrator]: Bruno obrócił kartkę, sprawdził jej drugą stronę i przyjrzał się zagięciom. Nie znalazł tam ani jednego dodatkowego znaku.
 
-[Narrator]:
-Przynieśli ją pod Wielki Dąb.
-Bruno otworzył pierwszą stronę.
-Była zapisana.
-Druga.
-Też.
-Trzecia.
-Również.
-Ale im dalej przewracali kartki, tym więcej było pustych stron.
+Bruno powiedział, że jeśli wiadomość dotyczy księgi, powinni zacząć od początku. Może właśnie tam ukryto wskazówkę, której wcześniej nie zauważyli.
 
-[Fela]: Może ktoś wymazał historię.
+[Fela]: To na co czekamy? Do Wielkiego Dębu!
 
-[Bruno]: Może.
+[Narrator]: Dzieci ruszyły leśną ścieżką. Wiatr popychał je lekko w plecy, jakby chciał pomóc im dotrzeć na miejsce. Co jakiś czas z góry spadały liście, a jeden z nich wylądował na głowie Bruna i zaczepił się o jego włosy. Fela zauważyła to natychmiast.
 
-[Fela]: Albo księga jeszcze jej nie zna.
+[Fela]: Bruno, masz na głowie jesienną koronę!
 
-Bruno spojrzał na Felę.
+[Narrator]: Bruno zdjął liść i włożył go sobie za ucho, udając bardzo poważnego króla lasu. Oznajmił, że jako władca jesieni rozkazuje wszystkim liściom natychmiast przestać latać. Wiatr odpowiedział mu głośnym szumem, a kilka liści zakręciło wokół jego nóg.
 
-[Bruno]: To ciekawe.
+[Fela]: Chyba twoi poddani nie uznają twojej władzy!
 
-[Fela]: Dziękuję.
+[Narrator]: Oboje wybuchnęli śmiechem. Dopiero po chwili dotarli pod Wielki Dąb, gdzie w bezpiecznym miejscu, na grubym korzeniu, pozostawili odnalezioną wcześniej księgę. Bruno ostrożnie ją podniósł, otrzepał okładkę z drobinek ziemi i otworzył na pierwszej stronie.
 
-[Bruno]: Nie powiedziałem, że to prawda.
+Bruno zauważył, że początek księgi wygląda zupełnie zwyczajnie. Znajdował się tam opis lasu, kilka starych rysunków i krótka opowieść o pierwszych jesiennych wyprawach. Druga strona również była zapisana. Trzecia także. Dzieci przewracały kolejne kartki, aż dotarły do miejsca, w którym tekst nagle się urywał. Następna strona była pusta. Potem kolejna. I jeszcze jedna.
 
-[Fela]: Ale powiedziałeś, że ciekawe.
+[Fela]: To niemożliwe! Ktoś chyba wymazał całą historię!
 
-[Narrator]:
-Fela wzięła jesienny liść.
-Położyła go na jednej z pustych stron.
-Nic.
-Potem drugi.
-Nic.
-W końcu położyła liść znaleziony pierwszego dnia jesieni.
-Księga zadrżała.
-Litery pojawiły się powoli.
-Bruno przeczytał:
-„Dawno temu, kiedy Klub Odkrywców dopiero powstawał...”
+[Narrator]: Bruno przesunął palcami po papierze. Nie było widać śladów gumki ani zadrapań. Kartki wyglądały tak, jakby nigdy nie zapisano na nich ani jednego słowa.
 
-[Narrator]:
-Oboje zamilkli.
-Księga opowiadała historię dawnych odkrywców.
-Dzieci, które mieszkały w Lesie Szumiących Liści wiele lat wcześniej.
-Też miały swoje wyprawy.
-Też pomagały innym.
-Też popełniały błędy.
-I też miały własne zagadki.
+Bruno zastanawiał się, czy ktoś celowo pozostawił puste strony. Może chciał ukryć jakąś tajemnicę? A może księga była niekompletna i brakowało w niej najważniejszej części?
 
-Na końcu znajdowało się zdanie:
-„Kiedy następni odkrywcy znajdą tę księgę, niech dopiszą swoją historię.”
+[Fela]: A może księga jeszcze nie zna tej historii?
 
-Fela spojrzała na Bruna.
+[Narrator]: Bruno podniósł wzrok i spojrzał na Felę. Przez moment nic nie mówił, a potem przyznał, że to całkiem ciekawy pomysł.
 
-[Fela]: To my.
+[Fela]: Dziękuję!
 
-[Bruno]: Chyba tak.
+[Narrator]: Bruno wyjaśnił, że nie powiedział, iż to na pewno prawda. Powiedział tylko, że pomysł jest ciekawy.
 
-[Fela]: Czyli ta jesienna zagadka nie prowadzi do skarbu.
+[Fela]: Ale skoro jest ciekawy, to warto go sprawdzić!
 
-[Bruno]: Nie.
+[Narrator]: Bruno nie znalazł na to żadnego rozsądnego argumentu. Fela miała już plan. Pomyślała, że skoro wiadomość przyniósł wiatr, a wszystko działo się w czasie jesieni, może odpowiedzi należy szukać w jesiennych liściach. Rozejrzała się pod dębem i wybrała jeden duży, złocisty liść. Ostrożnie położyła go na pierwszej pustej stronie księgi.
 
-[Fela]: Do czego więc?
+Nic się nie wydarzyło.
 
-Bruno spojrzał na księgę.
+Spróbowała z czerwonym liściem. Potem z małym, pomarańczowym. Przewracała kartki i przykładała do nich kolejne znaleziska, ale księga pozostawała nieruchoma. Wiatr hulał wokół dębu, strącając na ziemię coraz więcej liści, a dzieci powoli zaczynały tracić nadzieję.
 
-[Bruno]: Do nas.
+[Fela]: Może potrzebujemy jakiegoś wyjątkowego liścia? Takiego, który coś widział albo skądś przyleciał!
 
-[Narrator]:
-Wysoko nad nimi odezwała się sójka.
-Fela spojrzała w górę.
-Ptak siedział na gałęzi.
-W dziobie miał mały kawałek papieru.
-Upuścił go.
-Kartka spadła między nich.
-Bruno podniósł ją.
-Było na niej napisane:
-„Pierwszą historię już znacie.
-Teraz napiszcie własną.”
+[Narrator]: Bruno przypomniał sobie wtedy pierwszy dzień jesieni, kiedy razem odnaleźli księgę. Wtedy również wiatr bawił się liśćmi, a jeden z nich zatrzymał się w niezwykłym miejscu, tuż obok starego korzenia. Bruno zaproponował, żeby poszukali właśnie tam. Może tamten liść wciąż leżał w pobliżu.
+
+Dzieci zaczęły przeszukiwać okolicę. Zaglądały pod paprocie, odsuwały drobne gałązki i sprawdzały zagłębienia między korzeniami. W pewnym momencie wiatr zerwał się tak mocno, że księga zaczęła przesuwać się po korzeniu. Bruno szybko przytrzymał ją obiema rękami, a Fela przycisnęła okładkę małym kamieniem.
+
+[Fela]: Uważaj! Jeszcze chwila i księga poleci do sąsiedniego lasu!
+
+[Narrator]: Bruno zaśmiał się, ale zaraz potem spoważniał. Zauważył, że pod kamieniem, którym Fela przytrzymała okładkę, leży stary, wysuszony liść. Był ciemnozłoty, niemal brązowy, a jego brzegi przypominały delikatną koronkę. Fela natychmiast go rozpoznała. To był liść, który znaleźli pierwszego dnia jesieni!
+
+Ostrożnie podniosła go i podała Brunowi. Chłopiec położył liść na jednej z pustych stron. Przez kilka sekund nie działo się nic. Dzieci wstrzymały oddech. Nagle księga lekko zadrżała. Jej kartki zaszeleściły, choć wiatr na moment ucichł. Na białej stronie pojawiła się maleńka, złota kropka, a potem kolejne. Kropki połączyły się w litery, z których powoli zaczęły układać się słowa.
+
+Bruno pochylił się nad księgą i przeczytał pierwsze zdanie: „Dawno temu, kiedy Klub Odkrywców dopiero powstawał...”.
+
+[Fela]: Wiedziałam! Wiedziałam, że ten liść jest wyjątkowy!
+
+[Narrator]: Bruno przesunął palcem po zapisanym zdaniu. Pod nim pojawiały się kolejne linijki. Księga opowiadała o dawnych odkrywcach, dzieciach, które mieszkały w Lesie Szumiących Liści wiele lat wcześniej. Tak jak Bruno i Fela organizowały wyprawy, pomagały leśnym zwierzętom i rozwiązywały zagadki. Budowały kryjówki, szukały ukrytych ścieżek i uczyły się rozpoznawać odgłosy lasu.
+
+Nie wszystko jednak szło im łatwo. Czasami kłóciły się o to, którą drogę wybrać. Innym razem źle odczytywały wskazówki albo gubiły się podczas wypraw. Zdarzało się, że musiały wracać do tego samego miejsca kilka razy, zanim odkryły rozwiązanie. Ale za każdym razem uczyły się czegoś nowego i pomagały sobie nawzajem.
+
+Bruno i Fela czytali z zapartym tchem. Z każdą stroną odkrywali coraz więcej szczegółów. Dawni odkrywcy mieli swój znak, tajne hasło i miejsce spotkań pod Wielkim Dębem. Co więcej, na jednym z rysunków znajdowała się mała mapa lasu, na której zaznaczono ścieżkę prowadzącą do starej polany.
+
+[Fela]: Przecież my też znamy tę polanę! Byliśmy tam latem!
+
+[Narrator]: Bruno przyjrzał się mapie. Ścieżka wyglądała znajomo, ale obok niej narysowano coś jeszcze: trzy liście, niewielki kamień i spiralę przypominającą wirujący wiatr. Pod rysunkiem znajdowała się krótka notatka. Wynikało z niej, że dawni odkrywcy zostawili w lesie wskazówki dla tych, którzy pewnego dnia odnajdą księgę.
+
+Bruno zaczął przewracać kolejne strony, ale następna część opowieści była już znacznie krótsza. Na samym końcu widniało zdanie zapisane większymi literami: „Kiedy następni odkrywcy znajdą tę księgę, niech dopiszą swoją historię”.
+
+Dzieci zamilkły. Wiatr poruszał koroną Wielkiego Dębu, a między gałęziami słychać było cichy szelest liści. Fela spojrzała na Bruna, a potem na księgę. Nagle zrozumiała, że cała jesienna zagadka nie prowadziła do skrzyni ze skarbem ani do ukrytego skarbu ze złota.
+
+[Fela]: To my! To o nas chodzi!
+
+[Narrator]: Bruno powoli skinął głową. Przypomniał sobie wszystkie ich wyprawy, zagadki, spotkania i chwile, w których musieli wspólnie znaleźć rozwiązanie. Każda z tych przygód była częścią ich własnej historii. A księga czekała, aż ktoś ją zapisze.
+
+[Fela]: Czyli ta jesienna zagadka wcale nie prowadzi do skarbu?
+
+[Narrator]: Bruno odpowiedział, że nie. A kiedy Fela zapytała, dokąd w takim razie prowadzi, spojrzał na zapisane strony i powiedział, że chyba właśnie do nich samych.
+
+[Fela]: To znaczy, że my też jesteśmy odkrywcami z tej księgi?
+
+[Narrator]: Bruno wyjaśnił, że teraz już tak. Dawni odkrywcy zostawili im miejsce na własne przygody. I to od nich zależało, co się w nim znajdzie.
+
+Fela ostrożnie pogładziła pustą stronę, która znajdowała się tuż za ostatnim zapisanym zdaniem. Przez chwilę wyobrażała sobie, jak za wiele lat ktoś inny otwiera księgę i czyta o ich jesiennych wyprawach, o deszczowych dniach, tajemniczych ścieżkach i przyjaciołach, którym pomogli.
+
+[Fela]: Musimy zapisać wszystko! Każdą przygodę! Nawet tę, kiedy wpadłeś do kałuży i udawałeś, że sprawdzasz jej głębokość!
+
+[Narrator]: Bruno zaprotestował, że była to bardzo poważna wyprawa badawcza, a kałuża okazała się znacznie głębsza, niż wyglądała. Fela roześmiała się tak głośno, że spłoszyła małego ptaka siedzącego na pobliskiej gałęzi.
+
+W tej samej chwili nad ich głowami rozległo się głośne skrzeknięcie. Dzieci podniosły wzrok. Na gałęzi Wielkiego Dębu siedziała sójka. Przekrzywiła głowę, spojrzała na księgę i poruszyła skrzydłami. W dziobie trzymała kolejny kawałek papieru.
+
+Ptak upuścił kartkę. Papier zawirował w powietrzu, zatańczył między gałęziami i opadł prosto na otwartą księgę. Bruno podniósł go ostrożnie i rozprostował. Na kartce widniały dwa krótkie zdania: „Pierwszą historię już znacie. Teraz napiszcie własną”.
+
+[Fela]: To chyba znaczy, że nasza przygoda dopiero się zaczyna!
+
+[Narrator]: Bruno uśmiechnął się i schował wiadomość między stronami księgi. Wiatr znów poruszył liśćmi, ale tym razem nie wydawał się już taki tajemniczy. Brzmiał raczej jak cichy szept, który przypominał im, że każdy dzień może przynieść nową przygodę, a każda przygoda może stać się historią wartą zapamiętania.
+
+Fela spojrzała na pustą stronę i już zaczęła wymyślać tytuł ich pierwszej opowieści. Bruno przyniósł ołówek, a potem oboje usiedli pod Wielkim Dębem, gotowi zapisać to, co wydarzyło się tej jesieni.
+
+Nad lasem wirowały złote liście. A księga, która przez tak długi czas milczała, wreszcie czekała na ich słowa.
 
 [Muzyka końcowa]
 
-Koniec siódmego odcinka.
-"List, Który Przyniósł Wiatr".
+Koniec siódmego odcinka: „List, który przyniósł wiatr”.
