@@ -189,23 +189,98 @@
             outline-offset: 2px;
         }
 
-        .hero-art {
+        .hero-visual {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
         }
 
-        .hero-art img {
+        .hero-visual video {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 3;
             object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.8);
-            border-radius: 28px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
         }
 
-        .hero-art img:last-child {
-            margin-top: 30px;
+        .hero-visual video:nth-child(1) {
+            transform: rotate(-3deg);
+        }
+
+        .hero-visual video:nth-child(2) {
+            transform: rotate(2deg) translateY(14px);
+        }
+
+        .hero-visual video:nth-child(3) {
+            grid-column: 1 / -1;
+            aspect-ratio: 16 / 8;
+            transform: rotate(1deg);
+        }
+
+        .availability {
+            margin-top: 4px;
+            padding: 22px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .availability-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .availability h2 {
+            margin: 0;
+            font-size: clamp(1.5rem, 2.9vw, 2.1rem);
+            line-height: 1.15;
+        }
+
+        .availability p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .platform-links,
+        .mobile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .platform-link:hover,
+        .platform-link:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(31, 42, 42, 0.15);
+        }
+
+        .platform-link img {
+            display: block;
+            width: auto;
+            max-height: 40px;
+        }
+
+        .mobile-badges img {
+            display: block;
+            width: auto;
+            height: 42px;
+            border-radius: 9px;
         }
 
         .card,
@@ -359,8 +434,12 @@
                 padding-top: 30px;
             }
 
-            .hero-art {
+            .hero-visual {
                 max-width: 520px;
+            }
+
+            .availability-grid {
+                grid-template-columns: 1fr;
             }
 
             .character-grid {
@@ -403,9 +482,45 @@
                 <a class="button" href="#episodes">Explore the episodes</a>
             </div>
         </div>
-        <div class="hero-art" aria-label="Bruno and Fela">
-            <img src="../assets/pics/Bruno.jpeg" alt="Bruno the beaver">
-            <img src="../assets/pics/Fela.jpeg" alt="Fela the squirrel">
+        <div class="hero-visual" aria-label="Animated scenes with Bruno and Fela">
+            <video autoplay loop muted playsinline preload="metadata" poster="../assets/pics/Bruno_i_Fela1.JPEG" aria-label="Bruno dancing">
+                <source src="../assets/pics/Dance_Bruno.MP4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline preload="metadata" poster="../assets/pics/Bruno_i_Fela.JPEG" aria-label="Fela dancing">
+                <source src="../assets/pics/Fela.MP4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline preload="metadata" poster="../assets/pics/Bruno_i_Fela.JPEG" aria-label="Bruno and Fela dancing together">
+                <source src="../assets/pics/dance_Bruno_i_Fela.MP4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="availability" aria-label="Listen, watch and get the app">
+        <div class="availability-grid">
+            <article>
+                <h2>Bruno and Fela on Spotify and YouTube</h2>
+                <p>Listen to the show on Spotify or watch the English adventures on YouTube.</p>
+                <div class="platform-links" aria-label="Spotify and YouTube">
+                    <a class="platform-link" href="https://open.spotify.com/show/1KXPKZSLCEUV2e0v04QV1c?si=61vaqKxLSzK4RWLbzYmQ2Q" target="_blank" rel="noopener noreferrer" aria-label="Listen to Bruno and Fela on Spotify">
+                        <img src="../assets/logos/spotify.png" alt="Spotify">
+                    </a>
+                    <a class="platform-link" href="https://www.youtube.com/playlist?list=PLQyyQvlPW_9A" target="_blank" rel="noopener noreferrer" aria-label="Watch Season 1 on YouTube">
+                        <img src="../assets/logos/youtube-logo.png" alt="YouTube">
+                    </a>
+                </div>
+            </article>
+            <article>
+                <h2>Get the Bruno and Fela app</h2>
+                <p>Download the app for iPhone or join the Android testing program.</p>
+                <div class="mobile-badges" aria-label="Get the Bruno and Fela app">
+                    <a href="https://apps.apple.com/us/app/bruno-i-fela/id6805459668" target="_blank" rel="noopener noreferrer" aria-label="Download Bruno and Fela from the App Store">
+                        <img src="../assets/logos/app-store-badge.png" alt="Download on the App Store">
+                    </a>
+                    <a href="https://play.google.com/apps/testing/com.tomekg.brunoifela" target="_blank" rel="noopener noreferrer" aria-label="Join Bruno and Fela Android testing on Google Play">
+                        <img src="../assets/logos/google-play-badge.png" alt="Join the Google Play test">
+                    </a>
+                </div>
+            </article>
         </div>
     </section>
 
