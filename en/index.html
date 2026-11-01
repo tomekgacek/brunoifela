@@ -99,19 +99,93 @@
             gap: 8px;
         }
 
-        .nav a {
+        .nav a,
+        .nav summary {
+            display: inline-flex;
+            align-items: center;
             padding: 8px 12px;
             border-radius: 999px;
             color: var(--ink);
             font-size: 0.92rem;
             font-weight: 700;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .nav a:hover,
-        .nav a:focus-visible {
+        .nav a:focus-visible,
+        .nav summary:hover,
+        .nav summary:focus-visible {
             outline: none;
             background: rgba(124, 199, 194, 0.23);
+        }
+
+        .nav summary {
+            list-style: none;
+        }
+
+        .nav summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .nav summary::after {
+            margin-left: 8px;
+            content: "▾";
+            font-size: 0.82rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown[open] summary {
+            background: rgba(124, 199, 194, 0.23);
+        }
+
+        .nav-dropdown[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 30;
+            display: grid;
+            min-width: 190px;
+            gap: 4px;
+            padding: 8px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 12px 24px rgba(31, 42, 42, 0.12);
+        }
+
+        .nav .nav-dropdown-menu a {
+            border-radius: 10px;
+            padding: 8px 10px;
+        }
+
+        .nav-dropdown-menu a:hover {
+            transform: none;
+        }
+
+        .nav-dropdown-menu .coming-soon-link {
+            padding: 8px 10px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .language-link {
+            gap: 7px;
+        }
+
+        .language-flag {
+            font-size: 1.05rem;
+            line-height: 1;
         }
 
         main {
@@ -342,6 +416,21 @@
             line-height: 1.65;
         }
 
+        .forest-map-card {
+            overflow: hidden;
+            margin-top: 18px;
+            border: 1px solid rgba(31, 42, 42, 0.12);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .forest-map-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
         .episode-links {
             flex-wrap: wrap;
             gap: 10px;
@@ -429,6 +518,13 @@
                 justify-content: flex-start;
             }
 
+            .nav-dropdown-menu {
+                position: static;
+                margin-top: 4px;
+                background: rgba(255, 255, 255, 0.88);
+                box-shadow: none;
+            }
+
             .hero {
                 grid-template-columns: 1fr;
                 padding-top: 30px;
@@ -461,11 +557,28 @@
             <span>Bruno and Fela</span>
         </a>
         <nav class="nav" aria-label="Main navigation">
-            <a href="#episodes">Episodes</a>
+            <details class="nav-dropdown">
+                <summary>Audio stories</summary>
+                <div class="nav-dropdown-menu">
+                    <a href="#episodes">Season 1</a>
+                    <span class="coming-soon-link" aria-disabled="true">Season 2 (coming soon)</span>
+                    <span class="coming-soon-link" aria-disabled="true">Season 3 (coming soon)</span>
+                </div>
+            </details>
+            <details class="nav-dropdown">
+                <summary>Maps</summary>
+                <div class="nav-dropdown-menu">
+                    <a href="#season-1-map">Season 1</a>
+                    <span class="coming-soon-link" aria-disabled="true">Season 2 (coming soon)</span>
+                    <span class="coming-soon-link" aria-disabled="true">Season 3 (coming soon)</span>
+                </div>
+            </details>
             <a href="#characters">Meet the characters</a>
             <a href="#coloring">Coloring pages</a>
             <a href="#contact">Contact</a>
-            <a href="../" lang="pl" aria-label="Polska wersja strony">Polski</a>
+            <a class="language-link" href="../" lang="pl" aria-label="Polska wersja strony">
+                <span class="language-flag" aria-hidden="true">🇵🇱</span> Polski
+            </a>
         </nav>
     </div>
 </header>
@@ -556,6 +669,16 @@
             </div>
             <p class="coming-soon">More English episodes are coming soon!</p>
         </article>
+    </section>
+
+    <section id="season-1-map">
+        <h2>Season 1 adventure map</h2>
+        <p class="section-lead">
+            Explore the places Bruno and Fela visit in Season 1. Maps for the other seasons will be available soon.
+        </p>
+        <figure class="forest-map-card">
+            <img src="../assets/pics/mapa_en.png" alt="Illustrated map of the Forest School adventures in Season 1">
+        </figure>
     </section>
 
     <section id="characters">
