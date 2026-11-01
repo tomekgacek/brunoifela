@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruno and Fela | Forest Adventures for Kids</title>
+    <meta name="description" content="Meet Bruno and Fela, enjoy their English-language Forest School adventure, and download free coloring pages.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #f9f2dd;
+            --ink: #1f2a2a;
+            --muted: #4c5a5b;
+            --leaf: #2f8f5b;
+            --sky: #7cc7c2;
+            --card: rgba(255, 255, 255, 0.86);
+            --shadow: 0 20px 50px rgba(30, 51, 39, 0.15);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--ink);
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 8% 12%, rgba(124, 199, 194, 0.4), transparent 32%),
+                radial-gradient(circle at 92% 8%, rgba(244, 183, 64, 0.35), transparent 28%),
+                linear-gradient(180deg, var(--bg-cream) 0%, #f7eac8 45%, #f2e2bc 100%);
+        }
+
+        a {
+            color: #1f6846;
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid rgba(31, 42, 42, 0.08);
+            background: rgba(249, 242, 221, 0.86);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-row,
+        .nav,
+        .brand,
+        .actions,
+        .episode-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-row {
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .brand {
+            gap: 10px;
+            color: var(--ink);
+            font-family: "Baloo 2", cursive;
+            font-size: 1.55rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .brand-badge {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--leaf), var(--sky));
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .nav {
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .nav a {
+            padding: 8px 12px;
+            border-radius: 999px;
+            color: var(--ink);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            outline: none;
+            background: rgba(124, 199, 194, 0.23);
+        }
+
+        main {
+            padding-bottom: 24px;
+        }
+
+        section {
+            margin-top: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 28px;
+            align-items: center;
+            padding: 46px 0 8px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Baloo 2", cursive;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 5vw, 4.3rem);
+            line-height: 1.02;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            line-height: 1.1;
+        }
+
+        .lead,
+        .section-lead {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .lead {
+            max-width: 62ch;
+            margin: 16px 0 0;
+            font-size: 1.1rem;
+        }
+
+        .actions {
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--leaf), #44a36e);
+            box-shadow: 0 10px 20px rgba(47, 143, 91, 0.24);
+            color: #fff;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            filter: brightness(1.06);
+            outline: 3px solid rgba(47, 143, 91, 0.25);
+            outline-offset: 2px;
+        }
+
+        .hero-art {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .hero-art img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-art img:last-child {
+            margin-top: 30px;
+        }
+
+        .card,
+        .character-card,
+        .coloring-item {
+            overflow: hidden;
+            border: 1px solid rgba(31, 42, 42, 0.1);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .season-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 22px;
+        }
+
+        .season-card h3,
+        .character-card h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .season-card p,
+        .character-card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .episode-card {
+            margin-top: 18px;
+            padding: 20px;
+        }
+
+        .episode-code {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(47, 143, 91, 0.13);
+            color: #1f5f43;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .episode-card h3 {
+            margin: 10px 0 0;
+            font-size: 1.55rem;
+        }
+
+        .episode-card p {
+            max-width: 78ch;
+            margin: 8px 0 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .episode-links {
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .episode-links .button:last-child {
+            background: linear-gradient(135deg, #16813c, #28a853);
+        }
+
+        .coming-soon {
+            margin-top: 14px !important;
+            font-weight: 700;
+        }
+
+        .character-grid,
+        .coloring-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .character-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .character-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .character-copy {
+            padding: 18px;
+        }
+
+        .coloring-grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        .coloring-item img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .coloring-item .meta {
+            display: grid;
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .coloring-item h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .download-link {
+            width: fit-content;
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .site-footer {
+            padding: 28px 12px 36px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            text-align: center;
+        }
+
+        @media (max-width: 760px) {
+            .header-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 30px;
+            }
+
+            .hero-art {
+                max-width: 520px;
+            }
+
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .season-card {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-row">
+        <a class="brand" href="#top" aria-label="Bruno and Fela home">
+            <span class="brand-badge" aria-hidden="true">BF</span>
+            <span>Bruno and Fela</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="#episodes">Episodes</a>
+            <a href="#characters">Meet the characters</a>
+            <a href="#coloring">Coloring pages</a>
+            <a href="#contact">Contact</a>
+            <a href="../" lang="pl" aria-label="Polska wersja strony">Polski</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top" class="container">
+    <section class="hero">
+        <div>
+            <h1>Forest adventures for curious kids</h1>
+            <p class="lead">
+                Join Bruno, a thoughtful beaver, and Fela, a brave and energetic squirrel, as they make friends,
+                solve problems and discover the world around them. Find the English-language adventures available so far below.
+            </p>
+            <div class="actions">
+                <a class="button" href="#episodes">Explore the episodes</a>
+            </div>
+        </div>
+        <div class="hero-art" aria-label="Bruno and Fela">
+            <img src="../assets/pics/Bruno.jpeg" alt="Bruno the beaver">
+            <img src="../assets/pics/Fela.jpeg" alt="Fela the squirrel">
+        </div>
+    </section>
+
+    <section id="episodes">
+        <h2>English audio stories</h2>
+        <p class="section-lead">
+            Season 1 follows Bruno and Fela through friendship, teamwork, courage and exciting discoveries.
+            The stories are made for children aged 6–8 and are great for bedtime, car rides or listening together.
+        </p>
+        <article class="card season-card">
+            <div>
+                <h3>Season 1: Forest Adventures</h3>
+                <p>Listen to the English-language episodes in the Season 1 playlist.</p>
+            </div>
+            <a class="button" href="https://www.youtube.com/playlist?list=PLQyyQvlPW_9A" target="_blank" rel="noopener noreferrer">
+                Open the YouTube playlist
+            </a>
+        </article>
+        <article class="card episode-card">
+            <span class="episode-code">S01E01</span>
+            <h3>The First Day at Forest School</h3>
+            <p>
+                Bruno and Fela start at Forest School beneath the Great Oak. They meet new friends and their teacher,
+                Mrs Owl, and discover that the first day of school does not have to be scary.
+            </p>
+            <div class="episode-links">
+                <a class="button" href="https://youtu.be/AkJ7CNF2QfM?si=CBSuR8iOW2sBAwo_" target="_blank" rel="noopener noreferrer">
+                    Watch on YouTube
+                </a>
+                <a class="button" href="https://spotifycreators-web.app.link/e/1lQ1ZqA3C7b" target="_blank" rel="noopener noreferrer">
+                    Listen on Spotify
+                </a>
+            </div>
+            <p class="coming-soon">More English episodes are coming soon!</p>
+        </article>
+    </section>
+
+    <section id="characters">
+        <h2>Meet the characters</h2>
+        <p class="section-lead">
+            Bruno and Fela have very different personalities. That is what makes their adventures so much fun
+            and helps them learn from each other.
+        </p>
+        <div class="character-grid">
+            <article class="character-card">
+                <img src="../assets/pics/Bruno.jpeg" alt="Bruno the beaver">
+                <div class="character-copy">
+                    <h3>Bruno the beaver</h3>
+                    <p>
+                        Bruno is a clever little beaver who likes to think things through. He loves making plans,
+                        finding smart solutions and keeping his world in order. He often carries a notebook to jot
+                        down ideas and observations. Sometimes he overthinks things, but that helps him notice what
+                        others might miss.
+                    </p>
+                </div>
+            </article>
+            <article class="character-card">
+                <img src="../assets/pics/Fela.jpeg" alt="Fela the squirrel">
+                <div class="character-copy">
+                    <h3>Fela the squirrel</h3>
+                    <p>
+                        Fela is quick, full of energy and always ready for action. She bravely heads wherever
+                        something interesting is happening, and new adventures are impossible to resist. She can be
+                        spontaneous and act before she has a chance to think things through. Her enthusiasm, energy
+                        and big heart bring joy and a little daring to every story.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="coloring">
+        <h2>Free coloring pages</h2>
+        <p class="section-lead">
+            Download and print a coloring page to create your own version of Bruno and Fela.
+        </p>
+        <div class="coloring-grid">
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/0_Brno_i_Fela.png" alt="Bruno and Fela coloring page">
+                <div class="meta"><h3>Bruno and Fela</h3><a class="download-link" href="../assets/kolorowanki/0_Brno_i_Fela.png" download>Download PNG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/1_Bruno_i_Fela.jpeg" alt="Bruno and Fela coloring page">
+                <div class="meta"><h3>Bruno and Fela</h3><a class="download-link" href="../assets/kolorowanki/1_Bruno_i_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/2_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/2_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/3_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/3_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/4_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/4_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/5_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/5_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/6_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/6_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/7_Fela.jpeg" alt="Fela coloring page">
+                <div class="meta"><h3>Fela</h3><a class="download-link" href="../assets/kolorowanki/7_Fela.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/8_Bruno.jpeg" alt="Bruno coloring page">
+                <div class="meta"><h3>Bruno</h3><a class="download-link" href="../assets/kolorowanki/8_Bruno.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/9_Bruno.jpeg" alt="Bruno coloring page">
+                <div class="meta"><h3>Bruno</h3><a class="download-link" href="../assets/kolorowanki/9_Bruno.jpeg" download>Download JPG</a></div>
+            </article>
+            <article class="coloring-item">
+                <img src="../assets/kolorowanki/10_Wakacje.png" alt="Summer vacation coloring page">
+                <div class="meta"><h3>Summer vacation</h3><a class="download-link" href="../assets/kolorowanki/10_Wakacje.png" download>Download PNG</a></div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <article class="card contact-card">
+            <h2>Contact</h2>
+            <p class="section-lead">Have a question, comment or suggestion about Bruno and Fela? Get in touch!</p>
+            <p><a href="mailto:gacek.tomek@gmail.com">gacek.tomek@gmail.com</a></p>
+        </article>
+    </section>
+</main>
+
+<footer class="site-footer">
+    Bruno and Fela • Forest adventures for kids
+</footer>
+</body>
+</html>
