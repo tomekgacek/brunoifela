@@ -184,8 +184,12 @@
         }
 
         .language-flag {
-            font-size: 1.05rem;
-            line-height: 1;
+            display: block;
+            flex: none;
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            box-shadow: 0 0 0 1px rgba(31, 42, 42, 0.12);
         }
 
         main {
@@ -577,7 +581,11 @@
             <a href="#coloring">Coloring pages</a>
             <a href="#contact">Contact</a>
             <a class="language-link" href="../" lang="pl" aria-label="Polska wersja strony">
-                <span class="language-flag" aria-hidden="true">🇵🇱</span> Polski
+                <svg class="language-flag" aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="20" fill="#fff"/>
+                    <rect y="20" width="60" height="20" fill="#dc143c"/>
+                </svg>
+                Polski
             </a>
         </nav>
     </div>

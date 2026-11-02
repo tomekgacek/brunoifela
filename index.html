@@ -144,6 +144,15 @@
             gap: 7px;
         }
 
+        .nav .language-flag {
+            display: block;
+            flex: none;
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            box-shadow: 0 0 0 1px rgba(31, 42, 42, 0.12);
+        }
+
         .nav a:focus-visible,
         .nav summary:focus-visible {
             outline: 2px solid rgba(47, 143, 91, 0.65);
@@ -978,7 +987,16 @@
             <a href="#bohaterowie">Bohaterowie</a>
             <a href="#kolorowanki">Kolorowanki</a>
             <a href="#kontakt">Kontakt</a>
-            <a class="language-link" href="en/" lang="en" aria-label="English version"><span aria-hidden="true">🇬🇧</span> English</a>
+            <a class="language-link" href="en/" lang="en" aria-label="English version">
+                <svg class="language-flag" aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="40" fill="#012169"/>
+                    <path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="10"/>
+                    <path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="4"/>
+                    <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="16"/>
+                    <path d="M30 0v40M0 20h60" stroke="#c8102e" stroke-width="8"/>
+                </svg>
+                English
+            </a>
         </nav>
     </div>
 </header>
